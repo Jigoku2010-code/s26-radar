@@ -1,0 +1,264 @@
+{
+  "target": "Samsung Galaxy S26 Ultra, 512GB or 1TB, new",
+  "lastChecked": "2026-11-20T08:45:00+01:00",
+  "checkEveryHours": 2,
+  "budget": 900,
+  "listPrice512": 1449,
+  "listPrice1tb": 1949,
+  "prices": [
+    {
+      "country": "NL",
+      "site": "bol.com",
+      "shop": "bol.com plaza",
+      "storage": "512GB",
+      "price": 1064.99,
+      "sellerType": "marketplace",
+      "note": "Third-party seller on Bol. Check seller rating and that it's an EU model.",
+      "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
+      "checked": "2026-11-20"
+    },
+    {
+      "country": "DE",
+      "site": "billiger.de",
+      "shop": "Shop listed on billiger.de",
+      "storage": "512GB",
+      "price": 1087.95,
+      "sellerType": "shop",
+      "note": "€1,086 + €1.95 shipping, 1-day delivery. Many German shops deliver only inside Germany.",
+      "url": "https://www.billiger.de/products/5566608976-samsung-galaxy-s26-ultra-512-gb-silver-shadow",
+      "checked": "2026-11-20"
+    },
+    {
+      "country": "DE",
+      "site": "coolblue.de",
+      "shop": "Coolblue Germany",
+      "storage": "512GB",
+      "price": 1095.0,
+      "sellerType": "shop",
+      "note": "Black. Another Coolblue.de page showed €1,319, so confirm the price in your basket.",
+      "url": "https://www.coolblue.de/en/product/975476/samsung-galaxy-s26-ultra-512gb-black-5g.html",
+      "checked": "2026-11-20"
+    },
+    {
+      "country": "NL",
+      "site": "proshop.nl",
+      "shop": "Proshop",
+      "storage": "512GB",
+      "price": 1099.0,
+      "sellerType": "shop",
+      "note": "Regular shop, 2-year warranty.",
+      "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
+      "checked": "2026-11-20"
+    },
+    {
+      "country": "NL",
+      "site": "belsimpel.nl",
+      "shop": "Belsimpel",
+      "storage": "1TB",
+      "price": 1249.0,
+      "sellerType": "shop",
+      "note": "1TB for less than many shops ask for 512GB.",
+      "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/1000gb/",
+      "checked": "2026-11-20"
+    },
+    {
+      "country": "IT",
+      "site": "unieuro.it",
+      "shop": "Unieuro",
+      "storage": "512GB",
+      "price": 1249.0,
+      "sellerType": "shop",
+      "note": "Down from €1,349. Italian list price is €1,699. Delivers inside Italy.",
+      "url": "https://www.unieuro.it/online/Smartphone/Galaxy-S26-Ultra-Smartphone-AI-512GB-Privacy-Display-integrato-Processore-potente-Assistente-Foto-Camera-200-MP-5000-mAh-Sky-Blue-pidSAMS26ULTRA512B",
+      "checked": "2026-11-20"
+    },
+    {
+      "country": "NL",
+      "site": "samsung.com/nl",
+      "shop": "Samsung + code BF26",
+      "storage": "512GB",
+      "price": 1304.1,
+      "sellerType": "samsung",
+      "note": "€1,449 minus 10% with code BF26. The 10% also comes off any lower Samsung price.",
+      "url": "https://www.samsung.com/nl/smartphones/galaxy-s26-ultra/buy",
+      "checked": "2026-11-20"
+    },
+    {
+      "country": "NL",
+      "site": "coolblue.nl",
+      "shop": "Coolblue",
+      "storage": "512GB",
+      "price": 1589.0,
+      "sellerType": "shop",
+      "note": "Includes 1 year of Norton and VPN. Coolblue sometimes matches lower prices if you ask.",
+      "url": "https://www.coolblue.nl/en/product/975476/samsung-galaxy-s26-ultra-512gb-black-5g.html",
+      "checked": "2026-11-20"
+    },
+    {
+      "country": "BE",
+      "site": "coolblue.be",
+      "shop": "Coolblue Belgium",
+      "storage": "512GB",
+      "price": 1609.0,
+      "sellerType": "shop",
+      "note": "Page mentions a €100 Samsung cashback claim. Check whether it's still running.",
+      "url": "https://www.coolblue.be/en/product/975476/samsung-galaxy-s26-ultra-512gb-black-5g.html",
+      "checked": "2026-11-20"
+    },
+    {
+      "country": "BE",
+      "site": "mediamarkt.be",
+      "shop": "MediaMarkt Belgium",
+      "storage": "512GB",
+      "price": 1609.0,
+      "sellerType": "shop",
+      "note": "Black. The mauve colour was listed at €1,327 during a sale.",
+      "url": "https://www.mediamarkt.be/en/product/_samsung-galaxy-s26-ultra-5g-512-gb-black-2218226.html",
+      "checked": "2026-11-20"
+    }
+  ],
+  "promos": [
+    {
+      "title": "10% off with code BF26",
+      "country": "NL",
+      "site": "samsung.com/nl",
+      "kind": "code",
+      "code": "BF26",
+      "detail": "10% off at checkout on samsung.com/nl, calculated on the price after any other promotion.",
+      "ends": "",
+      "status": "active",
+      "url": "https://images.samsung.com/is/content/samsung/assets/nl/actievoorwaarden/Actievoorwaarden_Black_Friday_Voucher_2026_NL.pdf"
+    },
+    {
+      "title": "Free Galaxy Watch 8 or Tab A11+ with an S26",
+      "country": "NL",
+      "site": "androidworld.nl",
+      "kind": "gift",
+      "detail": "Several Dutch shops and providers add a free gift to the S26 series for Black Friday. Mostly with a phone plan.",
+      "ends": "",
+      "status": "active",
+      "url": "https://androidworld.nl/aanbiedingen/samsung-black-friday-2026/"
+    },
+    {
+      "title": "5% off orders of €1,000 or more",
+      "country": "IT",
+      "site": "samsung.com/it",
+      "kind": "discount",
+      "detail": "Samsung Italy online shop, on top of Black Friday prices.",
+      "ends": "2026-11-24T09:00:00+01:00",
+      "status": "active",
+      "url": "https://news.samsung.com/it/samsung-black-friday-2026-e-il-momento-giusto-per-un-nuovo-galaxy"
+    },
+    {
+      "title": "MediaMarkt Black Friday deals in the app",
+      "country": "NL",
+      "site": "mediamarkt.nl",
+      "kind": "discount",
+      "detail": "Deals appear in the app first and usually run until Cyber Monday.",
+      "ends": "2026-11-30T23:59:00+01:00",
+      "status": "active",
+      "url": "https://www.androidplanet.nl/deals/mediamarkt-black-friday-2026/"
+    },
+    {
+      "title": "Samsung Italy Black Friday",
+      "country": "IT",
+      "site": "samsung.com/it",
+      "kind": "discount",
+      "detail": "Black Friday offers on samsung.com/it until 1 December, 09:00.",
+      "ends": "2026-12-01T09:00:00+01:00",
+      "status": "active",
+      "url": "https://news.samsung.com/it/samsung-black-friday-2026-e-il-momento-giusto-per-un-nuovo-galaxy"
+    },
+    {
+      "title": "Rewards points on samsung.com",
+      "country": "NL",
+      "site": "samsung.com/nl",
+      "kind": "points",
+      "detail": "Black Friday points on Galaxy S26 phones (e.g. €100 on the S26 512GB). Check the S26 Ultra page while logged in.",
+      "ends": "",
+      "status": "check",
+      "url": "https://images.samsung.com/is/content/samsung/assets/nl/actievoorwaarden/E-storeRewardsBlackFriday2026NL.pdf"
+    },
+    {
+      "title": "Samsung cashback (up to €250)",
+      "country": "NL",
+      "site": "promotions.my-samsung.com",
+      "kind": "cashback",
+      "detail": "Not shown on Coolblue's S26 Ultra page today. Earlier rounds ran in summer. Check Samsung's promotions page.",
+      "ends": "",
+      "status": "check",
+      "url": "https://promotions.my-samsung.com/nl/offers"
+    },
+    {
+      "title": "Birthday discount for Samsung Members",
+      "country": "NL",
+      "site": "samsung.com/nl",
+      "kind": "discount",
+      "detail": "A birthday email with discounts that vary by product, up to 30%.",
+      "ends": "",
+      "status": "active",
+      "url": "https://eu.community.samsung.com/t5/samsung-shop/verjaardagskorting-samsung-members/td-p/3566605"
+    },
+    {
+      "title": "10% off for ICS credit card holders",
+      "country": "NL",
+      "site": "androidplanet.nl",
+      "kind": "discount",
+      "detail": "Separate Samsung webshop for ICS cardholders. 10% off Samsung's own price, so usually not cheaper than shops.",
+      "ends": "",
+      "status": "check",
+      "url": "https://www.androidplanet.nl/deals/samsung-galaxy-s26-ics/"
+    }
+  ],
+  "alerts": [
+    {
+      "at": "2026-11-20T08:45:00+01:00",
+      "level": "info",
+      "text": "Wider search done: added Coolblue NL, DE and BE, MediaMarkt BE and more. No Luxembourg shop prices found yet.",
+      "url": ""
+    },
+    {
+      "at": "2026-11-20T08:45:00+01:00",
+      "level": "expired",
+      "text": "Missed: Samsung Germany once sold the 512GB for €899 with stacked vouchers. That deal has expired, but it shows your budget is possible.",
+      "url": "https://www.mydealz.de/deals/galaxy-s26-ultra-512-gb-fur-899eur-bei-samsung-2773480"
+    },
+    {
+      "at": "2026-11-20T08:45:00+01:00",
+      "level": "info",
+      "text": "GIGA reported Amazon.de selling the 512GB for €1,015 (date unclear). Worth checking on Amazon.de.",
+      "url": "https://www.giga.de/tech/amazon-verkauft-samsung-galaxy-s26-ultra-mit-512-gb-und-3-jahren-garantie-viel-guenstiger--01KNVH1XCJ33T4BQK0W0T7CKVR"
+    },
+    {
+      "at": "2026-11-20T08:30:00+01:00",
+      "level": "ending",
+      "text": "Samsung Italy's extra 5% off ends 24 November at 09:00.",
+      "url": "https://news.samsung.com/it/samsung-black-friday-2026-e-il-momento-giusto-per-un-nuovo-galaxy"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-20",
+      "best512": 1064.99,
+      "where": "bol.com (NL)"
+    }
+  ],
+  "dates": [
+    {
+      "date": "2026-11-24",
+      "label": "Samsung IT extra 5% ends"
+    },
+    {
+      "date": "2026-11-27",
+      "label": "Black Friday"
+    },
+    {
+      "date": "2026-11-30",
+      "label": "Cyber Monday"
+    },
+    {
+      "date": "2026-12-01",
+      "label": "Samsung IT Black Friday ends"
+    }
+  ]
+}

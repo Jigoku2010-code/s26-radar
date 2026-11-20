@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S26 Ultra Deal Hunter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,500;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a deal-hunting shopping app. Blue app bar, white canvas,
+   two-column product cards with a pale-blue "photo" tile, big prices with an
+   orange underline swoosh, round orange buttons, fixed bottom tab bar. */
+:root {
+  --bar: #1a7fe0;
+  --bar-ink: #ffffff;
+  --bg: #ffffff;
+  --canvas: #f4f5f8;
+  --tile: #eef5fc;
+  --ink: #1b1440;
+  --muted: #6b6880;
+  --line: #e3e4ea;
+  --orange: #f4511e;
+  --orange-ink: #ffffff;
+  --good: #128a4a;
+  --good-soft: #e5f5ec;
+  --warn: #d6322b;
+  --sun: #ffe08a;
+  --font: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.4; -webkit-font-smoothing: antialiased; padding-bottom: 84px; }
+a { color: inherit; }
+button { font-family: inherit; }
+:focus-visible { outline: 3px solid var(--bar); outline-offset: 2px; }
+
+/* app bar */
+.appbar { position: sticky; top: 0; z-index: 10; background: var(--bar); color: var(--bar-ink); }
+.appbar-in { max-width: 1040px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.wordmark { font-weight: 900; font-style: italic; font-size: 26px; letter-spacing: -.03em; line-height: 1; text-transform: uppercase; }
+.wordmark small { display: block; font-style: normal; font-weight: 700; font-size: 11px; letter-spacing: .08em; opacity: .9; margin-top: 3px; }
+.fresh { font-size: 12px; font-weight: 700; text-align: right; line-height: 1.3; }
+.fresh b { display: block; font-size: 13px; }
+
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 12px; }
+.view[hidden] { display: none; }
+
+/* hero */
+.hero { margin: 14px 0 6px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
+.hero-tile { background: var(--tile); padding: 16px; display: grid; gap: 6px; align-content: center; justify-items: start; position: relative; }
+.hero-tile .flag { font-size: 44px; line-height: 1; }
+.hero-tile .site { font-weight: 900; font-size: 22px; letter-spacing: -.02em; word-break: break-word; }
+.hero-tile .country { font-weight: 700; color: var(--muted); }
+.hero-body { padding: 16px; display: grid; gap: 6px; align-content: start; }
+.hero-body .label { font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--orange); }
+.hero-body h1 { margin: 0; font-size: 20px; font-weight: 800; line-height: 1.2; text-wrap: balance; }
+.budget { margin-top: 8px; background: var(--canvas); border-radius: 10px; padding: 10px 12px; display: grid; gap: 6px; font-size: 13px; font-weight: 700; }
+.budget-row { display: flex; justify-content: space-between; gap: 8px; }
+.meter { height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--orange); border-radius: 99px; }
+.budget.hit { background: var(--good-soft); color: var(--good); }
+
+/* toolbar */
+.count { margin: 18px 4px 10px; font-size: 22px; font-weight: 600; }
+.toolbar { display: flex; align-items: center; gap: 10px; margin: 0 4px 12px; flex-wrap: wrap; }
+.toolbar label { font-size: 17px; font-weight: 500; }
+.select { appearance: none; border: 2px solid var(--line); border-radius: 8px; padding: 10px 38px 10px 14px; font: inherit; font-size: 16px; font-weight: 500; color: var(--ink); background: var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%231b1440' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center; cursor: pointer; }
+.tool-btns { margin-left: auto; display: flex; gap: 8px; }
+.icon-btn { width: 44px; height: 44px; border-radius: 10px; border: 0; background: transparent; color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+.icon-btn[aria-pressed="true"] { background: var(--tile); color: var(--bar); }
+.icon-btn svg { width: 30px; height: 30px; }
+.filters { margin: 0 4px 12px; display: grid; gap: 8px; }
+.filters[hidden] { display: none; }
+.chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.chip { flex: 0 0 auto; border: 2px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 99px; padding: 7px 14px; font-weight: 700; font-size: 14px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+/* cards */
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.grid.list { grid-template-columns: 1fr; }
+@media (min-width: 760px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1000px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+.card { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; background: var(--bg); }
+.tile { background: var(--tile); position: relative; padding: 46px 12px 16px; display: grid; justify-items: center; text-align: center; gap: 4px; min-height: 150px; align-content: center; border-bottom: 1px solid var(--line); }
+.pill { position: absolute; top: 10px; left: 10px; background: #fff; border-radius: 99px; padding: 5px 12px; font-size: 14px; font-weight: 600; box-shadow: 0 0 0 1px var(--line); white-space: nowrap; }
+.pill.hot { background: var(--orange); color: #fff; box-shadow: none; font-weight: 800; }
+.pill.best { background: var(--good); color: #fff; box-shadow: none; font-weight: 800; }
+.tile .flag { font-size: 40px; line-height: 1; }
+.tile .site { font-weight: 900; font-size: 19px; letter-spacing: -.02em; word-break: break-word; }
+.tile .country { font-weight: 700; font-size: 13px; color: var(--muted); }
+.tile .big { font-weight: 900; font-size: 30px; letter-spacing: -.03em; color: var(--ink); }
+.tile .code { font-family: ui-monospace, Menlo, monospace; font-weight: 800; font-size: 22px; color: var(--orange); border: 2px dashed var(--orange); border-radius: 8px; padding: 4px 10px; background: #fff; }
+.seller-tag { position: absolute; top: 10px; right: 10px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; padding: 4px 8px; border-radius: 6px; }
+.seller-tag.shop { background: var(--good-soft); color: var(--good); }
+.seller-tag.samsung { background: var(--ink); color: #fff; }
+.seller-tag.marketplace { background: var(--sun); color: #4a3800; }
+.body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.title { font-weight: 800; font-size: 17px; line-height: 1.25; margin: 0; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.sub { color: var(--muted); font-size: 15px; font-weight: 500; }
+.note { color: var(--muted); font-size: 13px; font-weight: 500; margin: 2px 0 0; }
+.advies { color: var(--muted); font-size: 15px; font-weight: 500; display: flex; align-items: center; gap: 6px; }
+.advies .i { width: 18px; height: 18px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 12px; font-weight: 900; display: inline-grid; place-items: center; font-style: italic; }
+.price-row { margin-top: auto; padding-top: 8px; display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; }
+.price { position: relative; font-weight: 800; font-size: 32px; letter-spacing: -.03em; line-height: 1; padding-bottom: 12px; font-variant-numeric: tabular-nums; }
+.price sup { font-size: 15px; font-weight: 800; position: relative; top: -2px; }
+.price svg { position: absolute; left: 0; bottom: 0; width: 100%; height: 12px; overflow: visible; }
+.go { width: 52px; height: 52px; border-radius: 50%; background: var(--orange); color: var(--orange-ink); display: grid; place-items: center; flex: 0 0 auto; text-decoration: none; }
+.go svg { width: 26px; height: 26px; }
+.go:hover { filter: brightness(1.07); }
+.timer { font-weight: 800; font-size: 13px; color: var(--warn); }
+.status { font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+.status.active { color: var(--good); }
+.status.check { color: #9a6b00; }
+.status.expired { color: var(--muted); }
+.card.dim { opacity: .55; }
+.empty { grid-column: 1 / -1; border: 1px dashed var(--line); border-radius: 12px; padding: 22px; text-align: center; color: var(--muted); font-weight: 700; }
+
+/* list mode */
+.grid.list .card { flex-direction: row; }
+.grid.list .tile { width: 40%; min-width: 130px; border-bottom: 0; border-right: 1px solid var(--line); min-height: 0; }
+
+/* alerts */
+.feed { display: grid; gap: 8px; margin-top: 14px; }
+.alert { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: grid; gap: 6px; }
+.alert-top { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.tag { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; padding: 4px 9px; border-radius: 99px; }
+.tag.new-low { background: var(--good-soft); color: var(--good); }
+.tag.flash { background: var(--warn); color: #fff; }
+.tag.ending { background: var(--sun); color: #4a3800; }
+.tag.gift { background: var(--orange); color: #fff; }
+.tag.info { background: var(--canvas); color: var(--muted); }
+.tag.expired { background: var(--canvas); color: var(--muted); }
+.alert time { font-size: 12px; color: var(--muted); font-weight: 700; }
+.alert p { margin: 0; font-weight: 600; }
+.alert a { color: var(--bar); font-weight: 800; }
+
+/* history */
+.h2 { font-size: 22px; font-weight: 800; margin: 20px 4px 10px; letter-spacing: -.01em; }
+.chart-card { border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+.chart-card svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart-card svg text { fill: var(--muted); font-family: var(--font); font-size: 12px; font-weight: 700; }
+.chart-tip { margin-top: 8px; color: var(--muted); font-weight: 700; font-size: 13px; min-height: 1.4em; }
+.dates { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+.date { border: 1px solid var(--line); border-radius: 12px; padding: 12px; display: grid; gap: 2px; }
+.date b { font-size: 20px; font-weight: 900; }
+.date span { color: var(--muted); font-weight: 600; font-size: 13px; }
+.date.past { opacity: .5; }
+.foot { color: var(--muted); font-size: 13px; font-weight: 500; margin: 20px 4px; display: grid; gap: 6px; max-width: 70ch; }
+
+/* bottom tab bar */
+.tabbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: var(--bg); border-top: 1px solid var(--line); }
+.tabbar-in { max-width: 640px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); }
+.tab { border: 0; background: transparent; color: var(--ink); padding: 10px 4px 12px; display: grid; justify-items: center; gap: 2px; font-size: 11px; font-weight: 700; cursor: pointer; position: relative; text-decoration: none; }
+.tab svg { width: 30px; height: 30px; }
+.tab[aria-current="page"] { color: var(--orange); }
+.badge { position: absolute; top: 4px; left: 54%; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 99px; background: var(--orange); color: #fff; font-size: 12px; font-weight: 800; display: grid; place-items: center; border: 2px solid var(--bg); }
+.badge[hidden] { display: none; }
+
+@media (max-width: 520px) {
+  .hero { grid-template-columns: 1fr; }
+  .grid:not(.list) .title { font-size: 15px; }
+  .grid:not(.list) .price { font-size: 26px; }
+  .grid:not(.list) .go { width: 44px; height: 44px; }
+  .grid:not(.list) .sub, .grid:not(.list) .advies { font-size: 13px; }
+  .grid:not(.list) .tile .site { font-size: 16px; }
+  .grid:not(.list) .pill { font-size: 12px; padding: 4px 9px; }
+  .grid:not(.list) .seller-tag { position: static; order: 9; margin-top: 4px; }
+}
+@media (prefers-reduced-motion: no-preference) { .card { transition: transform .15s; } .card:hover { transform: translateY(-2px); } }
+</style>
+</head>
+<body>
+
+<!-- DEALS-DATA-START -->
+<script id="deals-data" type="application/json">
+{
+  "target": "Samsung Galaxy S26 Ultra, 512GB or 1TB, new",
+  "lastChecked": "2026-11-20T08:45:00+01:00",
+  "checkEveryHours": 2,
+  "budget": 900,
+  "listPrice512": 1449,
+  "listPrice1tb": 1949,
+  "prices": [
+    {"country": "NL", "site": "bol.com", "shop": "bol.com plaza", "storage": "512GB", "price": 1064.99, "sellerType": "marketplace", "note": "Third-party seller on Bol. Check seller rating and that it's an EU model.", "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/", "checked": "2026-11-20"},
+    {"country": "DE", "site": "billiger.de", "shop": "Shop listed on billiger.de", "storage": "512GB", "price": 1087.95, "sellerType": "shop", "note": "€1,086 + €1.95 shipping, 1-day delivery. Many German shops deliver only inside Germany.", "url": "https://www.billiger.de/products/5566608976-samsung-galaxy-s26-ultra-512-gb-silver-shadow", "checked": "2026-11-20"},
+    {"country": "DE", "site": "coolblue.de", "shop": "Coolblue Germany", "storage": "512GB", "price": 1095.00, "sellerType": "shop", "note": "Black. Another Coolblue.de page showed €1,319, so confirm the price in your basket.", "url": "https://www.coolblue.de/en/product/975476/samsung-galaxy-s26-ultra-512gb-black-5g.html", "checked": "2026-11-20"},
+    {"country": "NL", "site": "proshop.nl", "shop": "Proshop", "storage": "512GB", "price": 1099.00, "sellerType": "shop", "note": "Regular shop, 2-year warranty.", "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/", "checked": "2026-11-20"},
+    {"country": "NL", "site": "belsimpel.nl", "shop": "Belsimpel", "storage": "1TB", "price": 1249.00, "sellerType": "shop", "note": "1TB for less than many shops ask for 512GB.", "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/1000gb/", "checked": "2026-11-20"},
+    {"country": "IT", "site": "unieuro.it", "shop": "Unieuro", "storage": "512GB", "price": 1249.00, "sellerType": "shop", "note": "Down from €1,349. Italian list price is €1,699. Delivers inside Italy.", "url": "https://www.unieuro.it/online/Smartphone/Galaxy-S26-Ultra-Smartphone-AI-512GB-Privacy-Display-integrato-Processore-potente-Assistente-Foto-Camera-200-MP-5000-mAh-Sky-Blue-pidSAMS26ULTRA512B", "checked": "2026-11-20"},
+    {"country": "NL", "site": "samsung.com/nl", "shop": "Samsung + code BF26", "storage": "512GB", "price": 1304.10, "sellerType": "samsung", "note": "€1,449 minus 10% with code BF26. The 10% also comes off any lower Samsung price.", "url": "https://www.samsung.com/nl/smartphones/galaxy-s26-ultra/buy", "checked": "2026-11-20"},
+    {"country": "NL", "site": "coolblue.nl", "shop": "Coolblue", "storage": "512GB", "price": 1589.00, "sellerType": "shop", "note": "Includes 1 year of Norton and VPN. Coolblue sometimes matches lower prices if you ask.", "url": "https://www.coolblue.nl/en/product/975476/samsung-galaxy-s26-ultra-512gb-black-5g.html", "checked": "2026-11-20"},
+    {"country": "BE", "site": "coolblue.be", "shop": "Coolblue Belgium", "storage": "512GB", "price": 1609.00, "sellerType": "shop", "note": "Page mentions a €100 Samsung cashback claim. Check whether it's still running.", "url": "https://www.coolblue.be/en/product/975476/samsung-galaxy-s26-ultra-512gb-black-5g.html", "checked": "2026-11-20"},
+    {"country": "BE", "site": "mediamarkt.be", "shop": "MediaMarkt Belgium", "storage": "512GB", "price": 1609.00, "sellerType": "shop", "note": "Black. The mauve colour was listed at €1,327 during a sale.", "url": "https://www.mediamarkt.be/en/product/_samsung-galaxy-s26-ultra-5g-512-gb-black-2218226.html", "checked": "2026-11-20"}
+  ],
+  "promos": [
+    {"title": "10% off with code BF26", "country": "NL", "site": "samsung.com/nl", "kind": "code", "code": "BF26", "detail": "10% off at checkout on samsung.com/nl, calculated on the price after any other promotion.", "ends": "", "status": "active", "url": "https://images.samsung.com/is/content/samsung/assets/nl/actievoorwaarden/Actievoorwaarden_Black_Friday_Voucher_2026_NL.pdf"},
+    {"title": "Free Galaxy Watch 8 or Tab A11+ with an S26", "country": "NL", "site": "androidworld.nl", "kind": "gift", "detail": "Several Dutch shops and providers add a free gift to the S26 series for Black Friday. Mostly with a phone plan.", "ends": "", "status": "active", "url": "https://androidworld.nl/aanbiedingen/samsung-black-friday-2026/"},
+    {"title": "5% off orders of €1,000 or more", "country": "IT", "site": "samsung.com/it", "kind": "discount", "detail": "Samsung Italy online shop, on top of Black Friday prices.", "ends": "2026-11-24T09:00:00+01:00", "status": "active", "url": "https://news.samsung.com/it/samsung-black-friday-2026-e-il-momento-giusto-per-un-nuovo-galaxy"},
+    {"title": "MediaMarkt Black Friday deals in the app", "country": "NL", "site": "mediamarkt.nl", "kind": "discount", "detail": "Deals appear in the app first and usually run until Cyber Monday.", "ends": "2026-11-30T23:59:00+01:00", "status": "active", "url": "https://www.androidplanet.nl/deals/mediamarkt-black-friday-2026/"},
+    {"title": "Samsung Italy Black Friday", "country": "IT", "site": "samsung.com/it", "kind": "discount", "detail": "Black Friday offers on samsung.com/it until 1 December, 09:00.", "ends": "2026-12-01T09:00:00+01:00", "status": "active", "url": "https://news.samsung.com/it/samsung-black-friday-2026-e-il-momento-giusto-per-un-nuovo-galaxy"},
+    {"title": "Rewards points on samsung.com", "country": "NL", "site": "samsung.com/nl", "kind": "points", "detail": "Black Friday points on Galaxy S26 phones (e.g. €100 on the S26 512GB). Check the S26 Ultra page while logged in.", "ends": "", "status": "check", "url": "https://images.samsung.com/is/content/samsung/assets/nl/actievoorwaarden/E-storeRewardsBlackFriday2026NL.pdf"},
+    {"title": "Samsung cashback (up to €250)", "country": "NL", "site": "promotions.my-samsung.com", "kind": "cashback", "detail": "Not shown on Coolblue's S26 Ultra page today. Earlier rounds ran in summer. Check Samsung's promotions page.", "ends": "", "status": "check", "url": "https://promotions.my-samsung.com/nl/offers"},
+    {"title": "Birthday discount for Samsung Members", "country": "NL", "site": "samsung.com/nl", "kind": "discount", "detail": "A birthday email with discounts that vary by product, up to 30%.", "ends": "", "status": "active", "url": "https://eu.community.samsung.com/t5/samsung-shop/verjaardagskorting-samsung-members/td-p/3566605"},
+    {"title": "10% off for ICS credit card holders", "country": "NL", "site": "androidplanet.nl", "kind": "discount", "detail": "Separate Samsung webshop for ICS cardholders. 10% off Samsung's own price, so usually not cheaper than shops.", "ends": "", "status": "check", "url": "https://www.androidplanet.nl/deals/samsung-galaxy-s26-ics/"}
+  ],
+  "alerts": [
+    {"at": "2026-11-20T08:45:00+01:00", "level": "info", "text": "Wider search done: added Coolblue NL, DE and BE, MediaMarkt BE and more. No Luxembourg shop prices found yet.", "url": ""},
+    {"at": "2026-11-20T08:45:00+01:00", "level": "expired", "text": "Missed: Samsung Germany once sold the 512GB for €899 with stacked vouchers. That deal has expired, but it shows your budget is possible.", "url": "https://www.mydealz.de/deals/galaxy-s26-ultra-512-gb-fur-899eur-bei-samsung-2773480"},
+    {"at": "2026-11-20T08:45:00+01:00", "level": "info", "text": "GIGA reported Amazon.de selling the 512GB for €1,015 (date unclear). Worth checking on Amazon.de.", "url": "https://www.giga.de/tech/amazon-verkauft-samsung-galaxy-s26-ultra-mit-512-gb-und-3-jahren-garantie-viel-guenstiger--01KNVH1XCJ33T4BQK0W0T7CKVR"},
+    {"at": "2026-11-20T08:30:00+01:00", "level": "ending", "text": "Samsung Italy's extra 5% off ends 24 November at 09:00.", "url": "https://news.samsung.com/it/samsung-black-friday-2026-e-il-momento-giusto-per-un-nuovo-galaxy"}
+  ],
+  "history": [
+    {"date": "2026-11-20", "best512": 1064.99, "where": "bol.com (NL)"}
+  ],
+  "dates": [
+    {"date": "2026-11-24", "label": "Samsung IT extra 5% ends"},
+    {"date": "2026-11-27", "label": "Black Friday"},
+    {"date": "2026-11-30", "label": "Cyber Monday"},
+    {"date": "2026-12-01", "label": "Samsung IT Black Friday ends"}
+  ]
+}
+</script>
+<!-- DEALS-DATA-END -->
+
+<header class="appbar">
+  <div class="appbar-in">
+    <div class="wordmark">S26 Radar<small>Galaxy S26 Ultra · 512GB+</small></div>
+    <div class="fresh" id="fresh"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- DEALS -->
+  <div class="view" id="view-deals">
+    <article class="hero" id="hero"></article>
+    <div class="count" id="count"></div>
+    <div class="toolbar">
+      <label for="sort">Sort by</label>
+      <select class="select" id="sort">
+        <option value="price">Price, low to high</option>
+        <option value="country">Country</option>
+        <option value="storage">Storage</option>
+      </select>
+      <div class="tool-btns">
+        <button class="icon-btn" id="filter-btn" type="button" aria-pressed="false" aria-label="Show filters">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M4 9h24M4 16h24M4 23h24"/><circle cx="11" cy="9" r="3" fill="#fff"/><circle cx="21" cy="16" r="3" fill="#fff"/><circle cx="11" cy="23" r="3" fill="#fff"/></svg>
+        </button>
+        <button class="icon-btn" id="layout-btn" type="button" aria-pressed="false" aria-label="Switch to list view">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.8"><rect x="4" y="5" width="24" height="9" rx="2.5"/><rect x="4" y="18" width="24" height="9" rx="2.5"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="filters" id="filters" hidden>
+      <div class="chips" id="country-chips" role="group" aria-label="Country"></div>
+      <div class="chips" id="storage-chips" role="group" aria-label="Storage"></div>
+    </div>
+    <div class="grid" id="deal-grid"></div>
+    <div class="foot">
+      <span>Prices are what shops and price trackers showed at the last check and may have changed since. Always confirm on the shop's page before buying.</span>
+      <span>"Marketplace" means a third-party seller on that site. The orange button opens the page where the price was found.</span>
+    </div>
+  </div>
+
+  <!-- PROMOS -->
+  <div class="view" id="view-promos" hidden>
+    <div class="count" id="promo-count"></div>
+    <div class="grid" id="promo-grid"></div>
+  </div>
+
+  <!-- ALERTS -->
+  <div class="view" id="view-alerts" hidden>
+    <div class="count">Just in</div>
+    <div class="feed" id="feed"></div>
+  </div>
+
+  <!-- HISTORY -->
+  <div class="view" id="view-history" hidden>
+    <div class="h2">Lowest 512GB price over time</div>
+    <div class="chart-card"><div id="chart"></div><div class="chart-tip" id="chart-tip"></div></div>
+    <div class="h2">Dates to watch</div>
+    <div class="dates" id="dates"></div>
+  </div>
+
+  <!-- INFO -->
+  <div class="view" id="view-info" hidden>
+    <div class="h2">How this works</div>
+    <div class="foot" id="info"></div>
+  </div>
+</main>
+
+<nav class="tabbar" aria-label="Sections">
+  <div class="tabbar-in">
+    <a class="tab" href="#deals" data-view="deals"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M5 15 16 6l11 9v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/></svg>Deals</a>
+    <a class="tab" href="#promos" data-view="promos"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M4 16V5h11l13 13-11 11z"/><circle cx="10" cy="11" r="2.2" fill="currentColor"/></svg>Promos</a>
+    <a class="tab" href="#alerts" data-view="alerts"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M8 22V14a8 8 0 0 1 16 0v8l2 3H6z"/><path d="M13 28h6" stroke-linecap="round"/></svg><span class="badge" id="badge" hidden></span>Alerts</a>
+    <a class="tab" href="#history" data-view="history"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 26h24"/><path d="M6 21l7-7 5 4 9-10"/></svg>History</a>
+    <a class="tab" href="#info" data-view="info"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><path d="M5 9h22M5 16h22M5 23h22"/></svg>Info</a>
+  </div>
+</nav>
+
+<script>
+function boot(D) {
+
+  var COUNTRY = { NL: "Netherlands", IT: "Italy", DE: "Germany", BE: "Belgium", LU: "Luxembourg" };
+  var FLAG = { NL: "🇳🇱", IT: "🇮🇹", DE: "🇩🇪", BE: "🇧🇪", LU: "🇱🇺" };
+  var safeUrl = function (u) { return typeof u === "string" && /^https?:\/\//i.test(u) ? u : null; };
+  var el = function (tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+  var nl = function (n) { return Math.floor(n).toLocaleString("nl-NL"); };
+  var eur = function (n) { var c = Math.round((n % 1) * 100); return "€" + nl(n) + (c ? "," + String(c).padStart(2, "0") : ",-"); };
+  var fmtWhen = function (iso) { var d = new Date(iso); return isNaN(d) ? "" : d.toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Amsterdam" }); };
+  var ago = function (iso) {
+    var m = Math.round((Date.now() - new Date(iso).getTime()) / 6e4);
+    if (isNaN(m)) return "";
+    if (m < 1) return "just now"; if (m < 60) return m + " min ago";
+    var h = Math.round(m / 60); if (h < 48) return h + " h ago";
+    return Math.round(h / 24) + " days ago";
+  };
+  var ns = "http://www.w3.org/2000/svg";
+  function swoosh() {
+    var s = document.createElementNS(ns, "svg"); s.setAttribute("viewBox", "0 0 100 12"); s.setAttribute("preserveAspectRatio", "none"); s.setAttribute("aria-hidden", "true");
+    var p = document.createElementNS(ns, "path"); p.setAttribute("d", "M1 6 H86 Q97 6 99 1"); p.setAttribute("fill", "none"); p.setAttribute("stroke", "var(--orange)"); p.setAttribute("stroke-width", "3"); p.setAttribute("stroke-linecap", "round"); p.setAttribute("vector-effect", "non-scaling-stroke");
+    s.appendChild(p); return s;
+  }
+  function priceEl(n, big) {
+    var d = el("div", "price"); if (big) d.style.fontSize = "40px";
+    d.append(nl(n) + ",");
+    var c = Math.round((n % 1) * 100);
+    d.appendChild(el("sup", null, c ? String(c).padStart(2, "0") : "-"));
+    d.appendChild(swoosh());
+    return d;
+  }
+  var arrowSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+  function goBtn(url, label) {
+    var u = safeUrl(url); if (!u) return el("span");
+    var a = el("a", "go"); a.href = u; a.rel = "noopener"; a.setAttribute("aria-label", label); a.innerHTML = arrowSvg; return a;
+  }
+
+  /* freshness */
+  var fresh = document.getElementById("fresh");
+  function drawFresh() {
+    fresh.textContent = "";
+    fresh.appendChild(el("b", null, "Updated " + ago(D.lastChecked)));
+    var next = new Date(new Date(D.lastChecked).getTime() + (D.checkEveryHours || 2) * 36e5);
+    var mins = Math.round((next - Date.now()) / 6e4);
+    fresh.append(mins > 0 ? "Next check in ~" + (mins >= 60 ? Math.round(mins / 60) + " h" : mins + " min") : "Next check any moment");
+  }
+  drawFresh(); setInterval(drawFresh, 60000);
+
+  var buyable = D.prices.filter(function (p) { return p.sellerType !== "listprice"; });
+  function bestOf(st) { return buyable.filter(function (p) { return p.storage === st; }).sort(function (a, b) { return a.price - b.price; })[0]; }
+  var best512 = bestOf("512GB"), best1tb = bestOf("1TB");
+
+  /* hero */
+  var hero = document.getElementById("hero");
+  if (best512) {
+    var t = el("div", "hero-tile");
+    t.appendChild(el("span", "pill best", "Lowest 512GB now"));
+    t.querySelector(".pill").style.position = "static";
+    t.appendChild(el("div", "flag", FLAG[best512.country] || ""));
+    t.appendChild(el("div", "site", best512.site));
+    t.appendChild(el("div", "country", (COUNTRY[best512.country] || best512.country) + " · " + best512.shop));
+    hero.appendChild(t);
+    var b = el("div", "hero-body");
+    b.appendChild(el("div", "label", "Deal of the moment"));
+    b.appendChild(el("h1", null, "Galaxy S26 Ultra " + best512.storage));
+    var adv = el("div", "advies", "List price " + eur(D.listPrice512)); b.appendChild(adv);
+    var pr = el("div", "price-row"); pr.appendChild(priceEl(best512.price, true)); pr.appendChild(goBtn(best512.url, "Open deal on " + best512.site)); b.appendChild(pr);
+    if (best512.note) b.appendChild(el("p", "note", best512.note));
+    var gap = best512.price - D.budget;
+    var bud = el("div", "budget" + (gap <= 0 ? " hit" : ""));
+    var row = el("div", "budget-row"); row.appendChild(el("span", null, "Your budget " + eur(D.budget))); row.appendChild(el("span", null, gap <= 0 ? "Budget reached!" : eur(Math.ceil(gap)) + " to go")); bud.appendChild(row);
+    var meter = el("div", "meter"); var fill = el("i"); fill.style.width = Math.max(4, Math.min(100, (1 - Math.max(0, gap) / (D.listPrice512 - D.budget)) * 100)).toFixed(0) + "%"; meter.appendChild(fill); bud.appendChild(meter);
+    b.appendChild(bud);
+    hero.appendChild(b);
+  }
+
+  /* deals */
+  var state = { country: "ALL", storage: "ALL", sort: "price", list: false, filters: false };
+  try { var sv = JSON.parse(localStorage.getItem("s26-radar") || "null"); if (sv) for (var k in sv) state[k] = sv[k]; } catch (e) {}
+  var save = function () { try { localStorage.setItem("s26-radar", JSON.stringify(state)); } catch (e) {} };
+
+  function chipRow(id, key, opts) {
+    var box = document.getElementById(id);
+    opts.forEach(function (o) {
+      var c = el("button", "chip", o[1]); c.type = "button"; c.id = id + "-" + o[0];
+      c.setAttribute("aria-pressed", String(state[key] === o[0]));
+      c.addEventListener("click", function () { state[key] = o[0]; save(); box.querySelectorAll(".chip").forEach(function (x) { x.setAttribute("aria-pressed", String(x === c)); }); drawDeals(); });
+      box.appendChild(c);
+    });
+  }
+  chipRow("country-chips", "country", [["ALL", "All countries"]].concat(["NL", "IT", "DE", "BE", "LU"].map(function (c) { return [c, FLAG[c] + " " + COUNTRY[c]]; })));
+  chipRow("storage-chips", "storage", [["ALL", "512GB + 1TB"], ["512GB", "512GB"], ["1TB", "1TB"]]);
+
+  var sortSel = document.getElementById("sort"); sortSel.value = state.sort;
+  sortSel.addEventListener("change", function () { state.sort = sortSel.value; save(); drawDeals(); });
+  var fBtn = document.getElementById("filter-btn"), fBox = document.getElementById("filters");
+  function applyFilterBtn() { fBox.hidden = !state.filters; fBtn.setAttribute("aria-pressed", String(state.filters)); }
+  fBtn.addEventListener("click", function () { state.filters = !state.filters; save(); applyFilterBtn(); });
+  applyFilterBtn();
+  var lBtn = document.getElementById("layout-btn");
+  function applyLayout() { document.getElementById("deal-grid").classList.toggle("list", state.list); document.getElementById("promo-grid").classList.toggle("list", state.list); lBtn.setAttribute("aria-pressed", String(state.list)); lBtn.setAttribute("aria-label", state.list ? "Switch to grid view" : "Switch to list view"); }
+  lBtn.addEventListener("click", function () { state.list = !state.list; save(); applyLayout(); });
+
+  var sellerName = { shop: "Shop", samsung: "Samsung", marketplace: "Marketplace" };
+  function drawDeals() {
+    var grid = document.getElementById("deal-grid"); grid.textContent = "";
+    var rows = D.prices.filter(function (p) { return (state.country === "ALL" || p.country === state.country) && (state.storage === "ALL" || p.storage === state.storage); });
+    var ord = { NL: 0, IT: 1, DE: 2, BE: 3, LU: 4 };
+    rows.sort(function (a, b) {
+      if (state.sort === "country") return (ord[a.country] - ord[b.country]) || a.price - b.price;
+      if (state.sort === "storage") return a.storage.localeCompare(b.storage) || a.price - b.price;
+      return a.price - b.price;
+    });
+    document.getElementById("count").textContent = rows.length + (rows.length === 1 ? " deal" : " deals");
+    if (!rows.length) { grid.appendChild(el("div", "empty", state.country === "LU" ? "No Luxembourg shop prices found yet. They're searched at every check." : "No deals for this filter yet.")); return; }
+    rows.forEach(function (p) {
+      var isBest = p === best512 || p === best1tb;
+      var c = el("article", "card");
+      var tile = el("div", "tile");
+      tile.appendChild(el("span", "pill" + (isBest ? " best" : ""), isBest ? "Lowest " + p.storage : "Checked " + (p.checked === new Date().toISOString().slice(0, 10) ? "today" : p.checked.slice(5))));
+      tile.appendChild(el("span", "seller-tag " + p.sellerType, sellerName[p.sellerType] || p.sellerType));
+      tile.appendChild(el("div", "flag", FLAG[p.country] || ""));
+      tile.appendChild(el("div", "site", p.site));
+      tile.appendChild(el("div", "country", COUNTRY[p.country] || p.country));
+      c.appendChild(tile);
+      var body = el("div", "body");
+      body.appendChild(el("h3", "title", "Galaxy S26 Ultra " + p.storage));
+      body.appendChild(el("div", "sub", p.shop));
+      var lp = p.storage === "1TB" ? D.listPrice1tb : D.listPrice512;
+      var adv = el("div", "advies", "List price " + eur(lp) + " "); var ic = el("span", "i", "i"); ic.title = "Samsung's own price in the Netherlands"; adv.appendChild(ic); body.appendChild(adv);
+      if (state.list && p.note) body.appendChild(el("p", "note", p.note));
+      var pr = el("div", "price-row"); pr.appendChild(priceEl(p.price)); pr.appendChild(goBtn(p.url, "Open " + p.site)); body.appendChild(pr);
+      c.appendChild(body);
+      if (p.note) c.title = p.note;
+      grid.appendChild(c);
+    });
+  }
+  drawDeals(); applyLayout();
+
+  /* promos */
+  var timers = [];
+  var kindBig = { cashback: "Cashback", gift: "Free gift", points: "Points", discount: "Discount", code: "Code" };
+  var statusTxt = { active: "Active", check: "To confirm", expired: "Ended" };
+  function daysLeft(iso) { var ms = new Date(iso).getTime() - Date.now(); return ms; }
+  (function drawPromos() {
+    var grid = document.getElementById("promo-grid");
+    var ord = { active: 0, check: 1, expired: 2 };
+    var list = D.promos.slice().sort(function (a, b) { return (ord[a.status] - ord[b.status]) || ((a.ends ? new Date(a.ends) : Infinity) - (b.ends ? new Date(b.ends) : Infinity)); });
+    var act = list.filter(function (p) { return p.status === "active"; }).length;
+    document.getElementById("promo-count").textContent = list.length + " promotions · " + act + " active";
+    list.forEach(function (pm) {
+      var c = el("article", "card" + (pm.status === "expired" ? " dim" : ""));
+      var tile = el("div", "tile");
+      var pill = el("span", "pill"); tile.appendChild(pill);
+      if (pm.ends) { pill.dataset.ends = pm.ends; timers.push(pill); } else { pill.textContent = statusTxt[pm.status] || pm.status; }
+      if (pm.code) tile.appendChild(el("div", "code", pm.code)); else tile.appendChild(el("div", "big", kindBig[pm.kind] || "Deal"));
+      tile.appendChild(el("div", "country", (FLAG[pm.country] || "") + " " + (COUNTRY[pm.country] || pm.country) + " · " + (pm.site || "")));
+      c.appendChild(tile);
+      var body = el("div", "body");
+      body.appendChild(el("div", "status " + pm.status, statusTxt[pm.status] || pm.status));
+      body.appendChild(el("h3", "title", pm.title));
+      body.appendChild(el("p", "note", pm.detail));
+      var row = el("div", "price-row"); row.appendChild(el("span")); row.appendChild(goBtn(pm.url, "Open details on " + (pm.site || "site"))); body.appendChild(row);
+      c.appendChild(body);
+      grid.appendChild(c);
+    });
+  })();
+  function tickTimers() {
+    timers.forEach(function (p) {
+      var ms = daysLeft(p.dataset.ends);
+      if (ms <= 0) { p.textContent = "Ended"; p.className = "pill"; return; }
+      var d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24;
+      p.textContent = d >= 1 ? (d + 1 > 1 ? d + " day" + (d > 1 ? "s" : "") + " left" : "") : h + " h left";
+      p.className = "pill" + (ms < 48 * 36e5 ? " hot" : "");
+    });
+  }
+  tickTimers(); setInterval(tickTimers, 60000);
+
+  /* alerts */
+  var tagTxt = { "new-low": "New low", flash: "Flash deal", ending: "Ends soon", gift: "Free gift", info: "Update", expired: "Missed" };
+  var feed = document.getElementById("feed");
+  var alerts = D.alerts.slice().sort(function (a, b) { return new Date(b.at) - new Date(a.at); });
+  alerts.forEach(function (al) {
+    var r = el("div", "alert");
+    var top = el("div", "alert-top"); top.appendChild(el("span", "tag " + (tagTxt[al.level] ? al.level : "info"), tagTxt[al.level] || "Update")); top.appendChild(el("time", null, fmtWhen(al.at))); r.appendChild(top);
+    var p = el("p", null, al.text + " "); var u = safeUrl(al.url); if (u) { var a = el("a", null, "View"); a.href = u; a.rel = "noopener"; p.appendChild(a); }
+    r.appendChild(p); feed.appendChild(r);
+  });
+  if (!alerts.length) feed.appendChild(el("div", "empty", "Nothing new yet."));
+  var seen = 0; try { seen = Number(localStorage.getItem("s26-radar-seen") || 0); } catch (e) {}
+  var unseen = alerts.filter(function (a) { return new Date(a.at).getTime() > seen; }).length;
+  var badge = document.getElementById("badge"); if (unseen) { badge.textContent = unseen > 9 ? "9+" : String(unseen); badge.hidden = false; }
+
+  /* history chart */
+  var H = D.history.filter(function (h) { return typeof h.best512 === "number"; });
+  var chart = document.getElementById("chart"), tip = document.getElementById("chart-tip");
+  function drawChart() {
+    chart.textContent = "";
+    if (H.length < 2) { tip.textContent = H.length ? "Started at " + eur(H[0].best512) + " at " + H[0].where + " on " + H[0].date + ". The line grows with every check." : "No history yet."; return; }
+    var w = Math.max(280, chart.clientWidth || 600), h = 220, m = { t: 16, r: 16, b: 26, l: 54 };
+    var xs = H.map(function (d) { return new Date(d.date).getTime(); }), ys = H.map(function (d) { return d.best512; });
+    var lo = Math.min.apply(null, ys.concat([D.budget])) - 20, hi = Math.max.apply(null, ys) + 20;
+    var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs);
+    var X = function (t) { return m.l + (x1 === x0 ? .5 : (t - x0) / (x1 - x0)) * (w - m.l - m.r); };
+    var Y = function (v) { return m.t + (1 - (v - lo) / (hi - lo)) * (h - m.t - m.b); };
+    var svg = document.createElementNS(ns, "svg"); svg.setAttribute("viewBox", "0 0 " + w + " " + h); svg.setAttribute("role", "img"); svg.setAttribute("aria-label", "Lowest 512GB price per check");
+    var mk = function (tag, at) { var n = document.createElementNS(ns, tag); for (var k in at) n.setAttribute(k, at[k]); svg.appendChild(n); return n; };
+    for (var i = 0; i <= 4; i++) { var v = lo + (hi - lo) * i / 4; mk("line", { x1: m.l, x2: w - m.r, y1: Y(v), y2: Y(v), stroke: "var(--line)" }); mk("text", { x: m.l - 8, y: Y(v) + 4, "text-anchor": "end" }).textContent = "€" + Math.round(v); }
+    mk("line", { x1: m.l, x2: w - m.r, y1: Y(D.budget), y2: Y(D.budget), stroke: "var(--good)", "stroke-width": 2, "stroke-dasharray": "6 5" });
+    mk("text", { x: w - m.r, y: Y(D.budget) - 6, "text-anchor": "end" }).textContent = "Budget " + eur(D.budget);
+    var path = H.map(function (d, i) { return (i ? "L" : "M") + X(xs[i]).toFixed(1) + " " + Y(d.best512).toFixed(1); }).join(" ");
+    mk("path", { d: path + " L" + X(xs[xs.length - 1]) + " " + (h - m.b) + " L" + X(xs[0]) + " " + (h - m.b) + " Z", fill: "var(--orange)", opacity: .1 });
+    mk("path", { d: path, fill: "none", stroke: "var(--orange)", "stroke-width": 3, "stroke-linejoin": "round", "stroke-linecap": "round" });
+    [0, H.length - 1].forEach(function (i, k) { mk("text", { x: X(xs[i]), y: h - 6, "text-anchor": k ? "end" : "start" }).textContent = H[i].date.slice(5); });
+    H.forEach(function (d, i) {
+      var last = i === H.length - 1;
+      var c = mk("circle", { cx: X(xs[i]), cy: Y(d.best512), r: last ? 6 : 4, fill: last ? "var(--orange)" : "#fff", stroke: "var(--orange)", "stroke-width": 2.5, tabindex: 0 });
+      var show = function () { tip.textContent = d.date + ": " + eur(d.best512) + " at " + d.where; };
+      c.addEventListener("mouseenter", show); c.addEventListener("focus", show); c.addEventListener("click", show);
+    });
+    chart.appendChild(svg);
+    tip.textContent = "Latest: " + eur(H[H.length - 1].best512) + " at " + H[H.length - 1].where + ". Tap a point for details.";
+  }
+  var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(drawChart, 150); });
+
+  /* dates */
+  var dl = document.getElementById("dates");
+  D.dates.forEach(function (d) {
+    var c = el("div", "date" + (new Date(d.date + "T23:59:59+01:00") < new Date() ? " past" : ""));
+    c.appendChild(el("b", null, new Date(d.date + "T12:00:00+01:00").toLocaleDateString("en-GB", { day: "numeric", month: "short" })));
+    c.appendChild(el("span", null, d.label)); dl.appendChild(c);
+  });
+
+  /* info */
+  var info = document.getElementById("info");
+  ["Target: " + D.target + ".",
+   "Budget: " + eur(D.budget) + ". You get a phone notification when a price at or under your budget, a free gift or a cashback shows up.",
+   "Claude searches shops and price trackers in the Netherlands, Italy, Germany, Belgium and Luxembourg about every " + (D.checkEveryHours || 2) + " hours and updates this page. Opening the page shows the latest check; it can't search on its own.",
+   "Only new phones with 512GB or 1TB from real shops are listed. Refurbished, grey-import, trade-in-only and very slow-delivery offers are left out.",
+   "Last check: " + fmtWhen(D.lastChecked) + "."
+  ].forEach(function (t) { info.appendChild(el("span", null, t)); });
+
+  /* tabs */
+  var views = ["deals", "promos", "alerts", "history", "info"];
+  function route() {
+    var v = (location.hash || "#deals").slice(1); if (views.indexOf(v) < 0) v = "deals";
+    views.forEach(function (n) { document.getElementById("view-" + n).hidden = n !== v; });
+    document.querySelectorAll(".tab").forEach(function (t) { if (t.dataset.view === v) t.setAttribute("aria-current", "page"); else t.removeAttribute("aria-current"); });
+    if (v === "history") drawChart();
+    if (v === "alerts") { badge.hidden = true; try { localStorage.setItem("s26-radar-seen", String(Date.now())); } catch (e) {} }
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", route); route();
+}
+(function () {
+  function fallback() { var D; try { D = JSON.parse(document.getElementById("deals-data").textContent); } catch (e) {} if (D) boot(D); else document.getElementById("count").textContent = "Couldn't load the deals. Check your connection."; }
+  if (location.protocol === "file:") { fallback(); return; }
+  fetch("deals.json?t=" + Date.now(), { cache: "no-store" })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(boot).catch(fallback);
+})();
+</script>
+</body>
+</html>
