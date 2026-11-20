@@ -115,6 +115,9 @@ button { font-family: inherit; }
 .status.check { color: #9a6b00; }
 .status.expired { color: var(--muted); }
 .card.dim { opacity: .55; }
+.emp { position: absolute; top: 10px; right: 10px; background: var(--bar); color: #fff; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; padding: 4px 8px; border-radius: 6px; }
+.who { font-size: 13px; font-weight: 700; color: var(--bar); margin: 2px 0 0; }
+@media (max-width: 520px) { .grid:not(.list) .emp { position: static; order: 9; margin-top: 4px; } }
 .empty { grid-column: 1 / -1; border: 1px dashed var(--line); border-radius: 12px; padding: 22px; text-align: center; color: var(--muted); font-weight: 700; }
 
 /* list mode */
@@ -266,6 +269,7 @@ button { font-family: inherit; }
   <!-- PROMOS -->
   <div class="view" id="view-promos" hidden>
     <div class="count" id="promo-count"></div>
+    <div class="filters"><div class="chips" id="channel-chips" role="group" aria-label="Who can use it"></div></div>
     <div class="grid" id="promo-grid"></div>
   </div>
 
@@ -303,8 +307,8 @@ button { font-family: inherit; }
 <script>
 function boot(D) {
 
-  var COUNTRY = { NL: "Netherlands", IT: "Italy", DE: "Germany", BE: "Belgium", LU: "Luxembourg" };
-  var FLAG = { NL: "🇳🇱", IT: "🇮🇹", DE: "🇩🇪", BE: "🇧🇪", LU: "🇱🇺" };
+  var COUNTRY = { NL: "Netherlands", IT: "Italy", DE: "Germany", BE: "Belgium", LU: "Luxembourg", CH: "Switzerland" };
+  var FLAG = { NL: "🇳🇱", IT: "🇮🇹", DE: "🇩🇪", BE: "🇧🇪", LU: "🇱🇺", CH: "🇨🇭" };
   var safeUrl = function (u) { return typeof u === "string" && /^https?:\/\//i.test(u) ? u : null; };
   var el = function (tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
   var nl = function (n) { return Math.floor(n).toLocaleString("nl-NL"); };
@@ -444,17 +448,32 @@ function boot(D) {
   var kindBig = { cashback: "Cashback", gift: "Free gift", points: "Points", discount: "Discount", code: "Code" };
   var statusTxt = { active: "Active", check: "To confirm", expired: "Ended" };
   function daysLeft(iso) { var ms = new Date(iso).getTime() - Date.now(); return ms; }
-  (function drawPromos() {
-    var grid = document.getElementById("promo-grid");
+  var promoChannel = state.promoChannel || "ALL";
+  (function () {
+    var box = document.getElementById("channel-chips");
+    [["ALL", "All promotions"], ["public", "For everyone"], ["employee", "Employee stores"]].forEach(function (o) {
+      var c = el("button", "chip", o[1]); c.type = "button"; c.id = "channel-" + o[0];
+      c.setAttribute("aria-pressed", String(promoChannel === o[0]));
+      c.addEventListener("click", function () { promoChannel = o[0]; state.promoChannel = o[0]; save(); box.querySelectorAll(".chip").forEach(function (x) { x.setAttribute("aria-pressed", String(x === c)); }); drawPromos(); });
+      box.appendChild(c);
+    });
+  })();
+  function drawPromos() {
+    var grid = document.getElementById("promo-grid"); grid.textContent = ""; timers = [];
     var ord = { active: 0, check: 1, expired: 2 };
-    var list = D.promos.slice().sort(function (a, b) { return (ord[a.status] - ord[b.status]) || ((a.ends ? new Date(a.ends) : Infinity) - (b.ends ? new Date(b.ends) : Infinity)); });
+    var all = D.promos.map(function (p) { if (!p.channel) p.channel = "public"; return p; });
+    var list = all.filter(function (p) { return promoChannel === "ALL" || p.channel === promoChannel; })
+      .sort(function (a, b) { return (ord[a.status] - ord[b.status]) || ((a.ends ? new Date(a.ends) : Infinity) - (b.ends ? new Date(b.ends) : Infinity)); });
     var act = list.filter(function (p) { return p.status === "active"; }).length;
+    var emp = all.filter(function (p) { return p.channel === "employee"; }).length;
     document.getElementById("promo-count").textContent = list.length + " promotions · " + act + " active";
+    if (!list.length) { grid.appendChild(el("div", "empty", promoChannel === "employee" ? "No employee-store promotions found right now." : "No promotions for this filter.")); return; }
     list.forEach(function (pm) {
       var c = el("article", "card" + (pm.status === "expired" ? " dim" : ""));
       var tile = el("div", "tile");
       var pill = el("span", "pill"); tile.appendChild(pill);
       if (pm.ends) { pill.dataset.ends = pm.ends; timers.push(pill); } else { pill.textContent = statusTxt[pm.status] || pm.status; }
+      if (pm.channel === "employee") tile.appendChild(el("span", "emp", "Employee store"));
       if (pm.code) tile.appendChild(el("div", "code", pm.code)); else tile.appendChild(el("div", "big", kindBig[pm.kind] || "Deal"));
       tile.appendChild(el("div", "country", (FLAG[pm.country] || "") + " " + (COUNTRY[pm.country] || pm.country) + " · " + (pm.site || "")));
       c.appendChild(tile);
@@ -462,11 +481,13 @@ function boot(D) {
       body.appendChild(el("div", "status " + pm.status, statusTxt[pm.status] || pm.status));
       body.appendChild(el("h3", "title", pm.title));
       body.appendChild(el("p", "note", pm.detail));
+      if (pm.channel === "employee") body.appendChild(el("p", "who", pm.who || "Only for people in this employee programme. Ask your colleague or sister to check their store."));
       var row = el("div", "price-row"); row.appendChild(el("span")); row.appendChild(goBtn(pm.url, "Open details on " + (pm.site || "site"))); body.appendChild(row);
       c.appendChild(body);
       grid.appendChild(c);
     });
-  })();
+    tickTimers();
+  }
   function tickTimers() {
     timers.forEach(function (p) {
       var ms = daysLeft(p.dataset.ends);
@@ -476,7 +497,7 @@ function boot(D) {
       p.className = "pill" + (ms < 48 * 36e5 ? " hot" : "");
     });
   }
-  tickTimers(); setInterval(tickTimers, 60000);
+  drawPromos(); setInterval(tickTimers, 60000);
 
   /* alerts */
   var tagTxt = { "new-low": "New low", flash: "Flash deal", ending: "Ends soon", gift: "Free gift", info: "Update", expired: "Missed" };

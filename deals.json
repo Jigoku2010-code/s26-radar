@@ -127,7 +127,8 @@
       "detail": "10% off at checkout on samsung.com/nl, calculated on the price after any other promotion.",
       "ends": "",
       "status": "active",
-      "url": "https://images.samsung.com/is/content/samsung/assets/nl/actievoorwaarden/Actievoorwaarden_Black_Friday_Voucher_2026_NL.pdf"
+      "url": "https://images.samsung.com/is/content/samsung/assets/nl/actievoorwaarden/Actievoorwaarden_Black_Friday_Voucher_2026_NL.pdf",
+      "channel": "public"
     },
     {
       "title": "Free Galaxy Watch 8 or Tab A11+ with an S26",
@@ -137,7 +138,8 @@
       "detail": "Several Dutch shops and providers add a free gift to the S26 series for Black Friday. Mostly with a phone plan.",
       "ends": "",
       "status": "active",
-      "url": "https://androidworld.nl/aanbiedingen/samsung-black-friday-2026/"
+      "url": "https://androidworld.nl/aanbiedingen/samsung-black-friday-2026/",
+      "channel": "public"
     },
     {
       "title": "5% off orders of €1,000 or more",
@@ -147,7 +149,8 @@
       "detail": "Samsung Italy online shop, on top of Black Friday prices.",
       "ends": "2026-11-24T09:00:00+01:00",
       "status": "active",
-      "url": "https://news.samsung.com/it/samsung-black-friday-2026-e-il-momento-giusto-per-un-nuovo-galaxy"
+      "url": "https://news.samsung.com/it/samsung-black-friday-2026-e-il-momento-giusto-per-un-nuovo-galaxy",
+      "channel": "public"
     },
     {
       "title": "MediaMarkt Black Friday deals in the app",
@@ -157,7 +160,8 @@
       "detail": "Deals appear in the app first and usually run until Cyber Monday.",
       "ends": "2026-11-30T23:59:00+01:00",
       "status": "active",
-      "url": "https://www.androidplanet.nl/deals/mediamarkt-black-friday-2026/"
+      "url": "https://www.androidplanet.nl/deals/mediamarkt-black-friday-2026/",
+      "channel": "public"
     },
     {
       "title": "Samsung Italy Black Friday",
@@ -167,7 +171,8 @@
       "detail": "Black Friday offers on samsung.com/it until 1 December, 09:00.",
       "ends": "2026-12-01T09:00:00+01:00",
       "status": "active",
-      "url": "https://news.samsung.com/it/samsung-black-friday-2026-e-il-momento-giusto-per-un-nuovo-galaxy"
+      "url": "https://news.samsung.com/it/samsung-black-friday-2026-e-il-momento-giusto-per-un-nuovo-galaxy",
+      "channel": "public"
     },
     {
       "title": "Rewards points on samsung.com",
@@ -177,7 +182,8 @@
       "detail": "Black Friday points on Galaxy S26 phones (e.g. €100 on the S26 512GB). Check the S26 Ultra page while logged in.",
       "ends": "",
       "status": "check",
-      "url": "https://images.samsung.com/is/content/samsung/assets/nl/actievoorwaarden/E-storeRewardsBlackFriday2026NL.pdf"
+      "url": "https://images.samsung.com/is/content/samsung/assets/nl/actievoorwaarden/E-storeRewardsBlackFriday2026NL.pdf",
+      "channel": "public"
     },
     {
       "title": "Samsung cashback (up to €250)",
@@ -187,7 +193,8 @@
       "detail": "Not shown on Coolblue's S26 Ultra page today. Earlier rounds ran in summer. Check Samsung's promotions page.",
       "ends": "",
       "status": "check",
-      "url": "https://promotions.my-samsung.com/nl/offers"
+      "url": "https://promotions.my-samsung.com/nl/offers",
+      "channel": "public"
     },
     {
       "title": "Birthday discount for Samsung Members",
@@ -197,7 +204,8 @@
       "detail": "A birthday email with discounts that vary by product, up to 30%.",
       "ends": "",
       "status": "active",
-      "url": "https://eu.community.samsung.com/t5/samsung-shop/verjaardagskorting-samsung-members/td-p/3566605"
+      "url": "https://eu.community.samsung.com/t5/samsung-shop/verjaardagskorting-samsung-members/td-p/3566605",
+      "channel": "public"
     },
     {
       "title": "10% off for ICS credit card holders",
@@ -207,10 +215,65 @@
       "detail": "Separate Samsung webshop for ICS cardholders. 10% off Samsung's own price, so usually not cheaper than shops.",
       "ends": "",
       "status": "check",
-      "url": "https://www.androidplanet.nl/deals/samsung-galaxy-s26-ics/"
+      "url": "https://www.androidplanet.nl/deals/samsung-galaxy-s26-ics/",
+      "channel": "public"
+    },
+    {
+      "title": "Free Galaxy Watch8 with an S26 Ultra (Partners Reward)",
+      "country": "IT",
+      "site": "samsung.com/it",
+      "kind": "gift",
+      "detail": "Samsung Italy's Watch8 gift promotion lists the S26 Ultra and counts purchases in the Partners Reward employee programme. End date not confirmed.",
+      "ends": "",
+      "status": "check",
+      "channel": "employee",
+      "who": "For Samsung Partners Reward members in Italy. Ask your Italian colleagues to check their store.",
+      "url": "https://images.samsung.com/is/content/samsung/assets/it/offer/samsung-promozioni/galaxysmartphoneregalanowatch8/Modifica_Regolamento_galaxysmartphoneregalanowatch8.pdf"
+    },
+    {
+      "title": "December employee-store gifts (expected)",
+      "country": "IT",
+      "site": "samsung.com/it",
+      "kind": "gift",
+      "detail": "Last year Samsung Italy ran Partners Reward promotions from 9 to 22 December with a free tablet or earbuds on Galaxy S and Z phones. A similar window is likely this year.",
+      "ends": "",
+      "status": "check",
+      "channel": "employee",
+      "who": "For Samsung Partners Reward members in Italy. Ask your Italian colleagues to check their store.",
+      "url": "https://www.samsung.com/it/offer/s24seriesregalataba9plusspr"
+    },
+    {
+      "title": "Corporate Benefits premium weeks",
+      "country": "DE",
+      "site": "corporate-benefits.de",
+      "kind": "discount",
+      "detail": "The German Corporate Benefits platform sometimes raises Samsung discounts, e.g. up to 38% instead of up to 28% during 15-21 May 2026.",
+      "ends": "",
+      "status": "check",
+      "channel": "employee",
+      "who": "For employees of companies on Corporate Benefits Germany. Ask your German colleagues.",
+      "url": "https://www.mydealz.de/deals/samsung-premium-deal-im-corporate-benefits-38-2780325"
+    },
+    {
+      "title": "Samsung EPP standard discount",
+      "country": "CH",
+      "site": "samsung.com/ch",
+      "kind": "discount",
+      "detail": "Samsung Switzerland's employee store has a standard discount of at least 15% plus regular promotions. Importing to NL adds 21% VAT.",
+      "ends": "",
+      "status": "active",
+      "channel": "employee",
+      "who": "For employees of Samsung EPP partner companies in Switzerland. Ask your Swiss colleagues.",
+      "url": "https://www.samsung.com/ch/offer/epp/"
     }
   ],
   "alerts": [
+    {
+      "at": "2026-11-20T16:15:00+01:00",
+      "level": "info",
+      "text": "New: employee-store promotions are now tracked in the Promos tab (Italy, Germany, Switzerland).",
+      "url": ""
+    },
     {
       "at": "2026-11-20T08:45:00+01:00",
       "level": "info",
@@ -259,6 +322,10 @@
     {
       "date": "2026-12-01",
       "label": "Samsung IT Black Friday ends"
+    },
+    {
+      "date": "2026-12-09",
+      "label": "Expected IT employee-store promos start"
     }
   ]
 }
