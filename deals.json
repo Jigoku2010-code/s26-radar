@@ -1,9 +1,9 @@
 {
   "target": "Samsung Galaxy S26 Ultra, 512GB or 1TB, new",
-  "lastChecked": "2026-11-20T08:45:00+01:00",
+  "lastChecked": "2026-11-22T08:30:00+01:00",
   "checkEveryHours": 2,
   "budget": 900,
-  "listPrice512": 1449,
+  "listPrice512": 1649,
   "listPrice1tb": 1949,
   "prices": [
     {
@@ -11,11 +11,11 @@
       "site": "bol.com",
       "shop": "bol.com plaza",
       "storage": "512GB",
-      "price": 1064.99,
+      "price": 1145.9,
       "sellerType": "marketplace",
-      "note": "Third-party seller on Bol. Check seller rating and that it's an EU model.",
+      "note": "Third-party seller on Bol. Lowest Dutch 512GB price today; up about €80 since Friday.",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-20"
+      "checked": "2026-11-22"
     },
     {
       "country": "DE",
@@ -41,25 +41,14 @@
     },
     {
       "country": "NL",
-      "site": "proshop.nl",
-      "shop": "Proshop",
-      "storage": "512GB",
-      "price": 1099.0,
-      "sellerType": "shop",
-      "note": "Regular shop, 2-year warranty.",
-      "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-20"
-    },
-    {
-      "country": "NL",
-      "site": "belsimpel.nl",
-      "shop": "Belsimpel",
+      "site": "androidplanet.nl",
+      "shop": "Lowest shop on Android Planet tracker",
       "storage": "1TB",
-      "price": 1249.0,
+      "price": 1449.0,
       "sellerType": "shop",
-      "note": "1TB for less than many shops ask for 512GB.",
-      "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/1000gb/",
-      "checked": "2026-11-20"
+      "note": "Lowest Dutch 1TB price today.",
+      "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/",
+      "checked": "2026-11-22"
     },
     {
       "country": "IT",
@@ -77,11 +66,11 @@
       "site": "samsung.com/nl",
       "shop": "Samsung + code BF26",
       "storage": "512GB",
-      "price": 1304.1,
+      "price": 1484.1,
       "sellerType": "samsung",
-      "note": "€1,449 minus 10% with code BF26. The 10% also comes off any lower Samsung price.",
+      "note": "€1,649 list price minus 10% with code BF26. Check the live price on the page.",
       "url": "https://www.samsung.com/nl/smartphones/galaxy-s26-ultra/buy",
-      "checked": "2026-11-20"
+      "checked": "2026-11-22"
     },
     {
       "country": "NL",
@@ -115,30 +104,53 @@
       "note": "Black. The mauve colour was listed at €1,327 during a sale.",
       "url": "https://www.mediamarkt.be/en/product/_samsung-galaxy-s26-ultra-5g-512-gb-black-2218226.html",
       "checked": "2026-11-20"
+    },
+    {
+      "country": "BE",
+      "site": "samsung.com/be",
+      "shop": "Samsung + code BF26",
+      "storage": "512GB",
+      "price": 1448.1,
+      "sellerType": "samsung",
+      "note": "€1,609 minus 10% with code BF26. Delivers inside Belgium.",
+      "url": "https://www.samsung.com/be/smartphones/galaxy-s26-ultra/buy/",
+      "checked": "2026-11-22"
     }
   ],
   "promos": [
+    {
+      "title": "Free 55-inch Samsung TV with an S26 Ultra",
+      "country": "DE",
+      "site": "samsung.com/de",
+      "kind": "gift",
+      "code": "BF2026",
+      "detail": "Buy any S26 Ultra (256GB, 512GB or 1TB, without a phone plan) in Samsung Germany's online shop, add the Crystal UHD 55-inch TV and use code BF2026: the TV is free. Samsung Germany delivers only inside Germany.",
+      "ends": "2026-11-26T13:59:00+01:00",
+      "status": "active",
+      "channel": "public",
+      "url": "https://www.netzwelt.de/schnaeppchen/260517-black-friday-samsung-galaxy-s26-ultra-kaufen-55-zoll-fernseher-geschenkt-bekommen.html"
+    },
     {
       "title": "10% off with code BF26",
       "country": "NL",
       "site": "samsung.com/nl",
       "kind": "code",
       "code": "BF26",
-      "detail": "10% off at checkout on samsung.com/nl, calculated on the price after any other promotion.",
+      "detail": "10% off at checkout on samsung.com/nl, calculated on the price after any other promotion. The same code also works on samsung.com/be.",
       "ends": "",
       "status": "active",
       "url": "https://images.samsung.com/is/content/samsung/assets/nl/actievoorwaarden/Actievoorwaarden_Black_Friday_Voucher_2026_NL.pdf",
       "channel": "public"
     },
     {
-      "title": "Free Galaxy Watch 8 or Tab A11+ with an S26",
+      "title": "Free Watch 8 or Tab A11+ with a phone plan",
       "country": "NL",
       "site": "androidworld.nl",
       "kind": "gift",
-      "detail": "Several Dutch shops and providers add a free gift to the S26 series for Black Friday. Mostly with a phone plan.",
+      "detail": "Odido gives a Galaxy Watch 8, KPN and Vodafone a Galaxy Tab A11+ with the S26 Ultra. Only with a phone plan.",
       "ends": "",
       "status": "active",
-      "url": "https://androidworld.nl/aanbiedingen/samsung-black-friday-2026/",
+      "url": "https://www.androidplanet.nl/deals/samsung-galaxy-s26-ultra-black-friday-2026/",
       "channel": "public"
     },
     {
@@ -223,9 +235,9 @@
       "country": "IT",
       "site": "samsung.com/it",
       "kind": "gift",
-      "detail": "Samsung Italy's Watch8 gift promotion lists the S26 Ultra and counts purchases in the Partners Reward employee programme. End date not confirmed.",
-      "ends": "",
-      "status": "check",
+      "detail": "Samsung Italy's Watch8 gift for Partners Reward members ran from 6 October to 2 November 2026.",
+      "ends": "2026-11-02T23:59:00+01:00",
+      "status": "expired",
       "channel": "employee",
       "who": "For Samsung Partners Reward members in Italy. Ask your Italian colleagues to check their store.",
       "url": "https://images.samsung.com/is/content/samsung/assets/it/offer/samsung-promozioni/galaxysmartphoneregalanowatch8/Modifica_Regolamento_galaxysmartphoneregalanowatch8.pdf"
@@ -269,6 +281,24 @@
   ],
   "alerts": [
     {
+      "at": "2026-11-22T08:30:00+01:00",
+      "level": "gift",
+      "text": "Samsung Germany gives a free 55-inch TV with any S26 Ultra (code BF2026) until 26 Nov, 13:59. Delivery inside Germany only.",
+      "url": "https://www.netzwelt.de/schnaeppchen/260517-black-friday-samsung-galaxy-s26-ultra-kaufen-55-zoll-fernseher-geschenkt-bekommen.html"
+    },
+    {
+      "at": "2026-11-22T08:30:00+01:00",
+      "level": "info",
+      "text": "Lowest Dutch 512GB price is now €1,145.90 at bol.com plaza, about €80 more than on Friday.",
+      "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/"
+    },
+    {
+      "at": "2026-11-22T08:30:00+01:00",
+      "level": "expired",
+      "text": "Italy's Partners Reward Watch8 gift ended on 2 November.",
+      "url": "https://images.samsung.com/is/content/samsung/assets/it/offer/samsung-promozioni/galaxysmartphoneregalanowatch8/Modifica_Regolamento_galaxysmartphoneregalanowatch8.pdf"
+    },
+    {
       "at": "2026-11-20T16:15:00+01:00",
       "level": "info",
       "text": "New: employee-store promotions are now tracked in the Promos tab (Italy, Germany, Switzerland).",
@@ -304,12 +334,21 @@
       "date": "2026-11-20",
       "best512": 1064.99,
       "where": "bol.com (NL)"
+    },
+    {
+      "date": "2026-11-22",
+      "best512": 1087.95,
+      "where": "billiger.de (DE)"
     }
   ],
   "dates": [
     {
       "date": "2026-11-24",
       "label": "Samsung IT extra 5% ends"
+    },
+    {
+      "date": "2026-11-26",
+      "label": "Samsung DE free TV offer ends 13:59"
     },
     {
       "date": "2026-11-27",
