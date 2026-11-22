@@ -346,9 +346,19 @@ function boot(D) {
   function drawFresh() {
     fresh.textContent = "";
     fresh.appendChild(el("b", null, "Updated " + ago(D.lastChecked)));
-    var next = new Date(new Date(D.lastChecked).getTime() + (D.checkEveryHours || 2) * 36e5);
-    var mins = Math.round((next - Date.now()) / 6e4);
-    fresh.append(mins > 0 ? "Next check in ~" + (mins >= 60 ? Math.round(mins / 60) + " h" : mins + " min") : "Next check any moment");
+    var hrs = (D.checkTimes || ["08:00", "13:00"]);
+    var nowA = new Date(), next = null;
+    for (var dd = 0; dd < 2 && !next; dd++) {
+      for (var i = 0; i < hrs.length; i++) {
+        var parts = hrs[i].split(":");
+        var cand = new Date(nowA.toLocaleString("en-US", { timeZone: "Europe/Amsterdam" }));
+        var offset = nowA.getTime() - cand.getTime();
+        cand.setDate(cand.getDate() + dd); cand.setHours(+parts[0], +parts[1], 0, 0);
+        var t = cand.getTime() + offset;
+        if (t > nowA.getTime()) { next = { t: t, label: (dd ? "tomorrow " : "today ") + hrs[i] }; break; }
+      }
+    }
+    fresh.append(next ? "Next check " + next.label : "");
   }
   drawFresh(); setInterval(drawFresh, 60000);
 
@@ -558,7 +568,7 @@ function boot(D) {
   var info = document.getElementById("info");
   ["Target: " + D.target + ".",
    "Budget: " + eur(D.budget) + ". You get a phone notification when a price at or under your budget, a free gift or a cashback shows up.",
-   "Claude searches shops and price trackers in the Netherlands, Italy, Germany, Belgium and Luxembourg about every " + (D.checkEveryHours || 2) + " hours and updates this page. Opening the page shows the latest check; it can't search on its own.",
+   "Claude searches shops and price trackers in the Netherlands, Italy, Germany, Belgium and Luxembourg every day at " + (D.checkTimes || ["08:00", "13:00"]).join(" and ") + " and updates this page. Opening the page shows the latest check; it can't search on its own.",
    "Only new phones with 512GB or 1TB from real shops are listed. Refurbished, grey-import, trade-in-only and very slow-delivery offers are left out.",
    "Last check: " + fmtWhen(D.lastChecked) + "."
   ].forEach(function (t) { info.appendChild(el("span", null, t)); });
