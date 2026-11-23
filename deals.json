@@ -1,6 +1,6 @@
 {
   "target": "Samsung Galaxy S26 Ultra, 512GB or 1TB, new",
-  "lastChecked": "2026-11-23T07:45:00+01:00",
+  "lastChecked": "2026-11-23T13:00:00+01:00",
   "checkEveryHours": 2,
   "budget": 900,
   "listPrice512": 1649,
@@ -79,7 +79,7 @@
       "storage": "512GB",
       "price": 1609.0,
       "sellerType": "shop",
-      "note": "Coolblue shows a '€250 cashback' badge on S26 Ultra pages. Confirm the cashback dates before relying on it.",
+      "note": "The '€250 cashback' badge is from Samsung's June-July promotion. Coolblue's current Black Friday cashback doesn't include the S26 Ultra.",
       "url": "https://www.coolblue.nl/en/mobile-phones/smartphones/samsung/samsung-galaxy-s26-ultra",
       "checked": "2026-11-23"
     },
@@ -209,14 +209,14 @@
       "channel": "public"
     },
     {
-      "title": "Samsung cashback up to €250 (Coolblue badge)",
+      "title": "Samsung cashback €250 on S26 Ultra (ended)",
       "country": "NL",
       "site": "promotions.my-samsung.com",
       "kind": "cashback",
-      "detail": "Coolblue now shows a '€250 cashback' badge on S26 Ultra listings during its Black Friday (9-30 Nov). The product page didn't confirm it on 20 Nov, so check the conditions before buying.",
-      "ends": "",
-      "status": "check",
-      "url": "https://www.coolblue.nl/en/mobile-phones/smartphones/samsung/samsung-galaxy-s26-ultra",
+      "detail": "This €250 Samsung cashback applied to purchases between 8 June and 12 July 2026. Coolblue's Black Friday cashback (9-30 Nov) is only €150 on the Z Flip 8 and S26 FE, not the S26 Ultra.",
+      "ends": "2026-07-12T23:59:00+01:00",
+      "status": "expired",
+      "url": "https://www.coolblue.nl/download/d2fa61ad01fad5db68dae5379d7507a4/Actiehandleiding%5FFlip8S26FE.pdf",
       "channel": "public"
     },
     {
@@ -291,6 +291,12 @@
     }
   ],
   "alerts": [
+    {
+      "at": "2026-11-23T13:00:00+01:00",
+      "level": "info",
+      "text": "Correction: the €250 cashback badge on Coolblue's S26 Ultra is from a June-July promotion. Coolblue's current Black Friday cashback doesn't cover the S26 Ultra.",
+      "url": "https://www.coolblue.nl/download/d2fa61ad01fad5db68dae5379d7507a4/Actiehandleiding%5FFlip8S26FE.pdf"
+    },
     {
       "at": "2026-11-23T07:45:00+01:00",
       "level": "info",
