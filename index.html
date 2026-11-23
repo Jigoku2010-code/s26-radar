@@ -346,7 +346,7 @@ function boot(D) {
   function drawFresh() {
     fresh.textContent = "";
     fresh.appendChild(el("b", null, "Updated " + ago(D.lastChecked)));
-    var hrs = (D.checkTimes || ["08:00", "13:00"]);
+    var hrs = (D.checkTimes || ["07:30", "13:00"]);
     var nowA = new Date(), next = null;
     for (var dd = 0; dd < 2 && !next; dd++) {
       for (var i = 0; i < hrs.length; i++) {
@@ -568,7 +568,7 @@ function boot(D) {
   var info = document.getElementById("info");
   ["Target: " + D.target + ".",
    "Budget: " + eur(D.budget) + ". You get a phone notification when a price at or under your budget, a free gift or a cashback shows up.",
-   "Claude searches shops and price trackers in the Netherlands, Italy, Germany, Belgium and Luxembourg every day at " + (D.checkTimes || ["08:00", "13:00"]).join(" and ") + " and updates this page. Opening the page shows the latest check; it can't search on its own.",
+   "Claude searches shops and price trackers in the Netherlands, Italy, Germany, Belgium and Luxembourg every day at " + (D.checkTimes || ["07:30", "13:00"]).join(" and ") + " and updates this page. Opening the page shows the latest check; it can't search on its own.",
    "Only new phones with 512GB or 1TB from real shops are listed. Refurbished, grey-import, trade-in-only and very slow-delivery offers are left out.",
    "Last check: " + fmtWhen(D.lastChecked) + "."
   ].forEach(function (t) { info.appendChild(el("span", null, t)); });

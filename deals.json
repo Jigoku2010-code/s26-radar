@@ -1,6 +1,6 @@
 {
   "target": "Samsung Galaxy S26 Ultra, 512GB or 1TB, new",
-  "lastChecked": "2026-11-22T13:00:00+01:00",
+  "lastChecked": "2026-11-23T07:45:00+01:00",
   "checkEveryHours": 2,
   "budget": 900,
   "listPrice512": 1649,
@@ -15,7 +15,7 @@
       "sellerType": "marketplace",
       "note": "Third-party seller on Bol. Lowest Dutch 512GB price today; up about €80 since Friday.",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-22"
+      "checked": "2026-11-23"
     },
     {
       "country": "DE",
@@ -77,11 +77,11 @@
       "site": "coolblue.nl",
       "shop": "Coolblue",
       "storage": "512GB",
-      "price": 1589.0,
+      "price": 1609.0,
       "sellerType": "shop",
-      "note": "Includes 1 year of Norton and VPN. Coolblue sometimes matches lower prices if you ask.",
-      "url": "https://www.coolblue.nl/en/product/975476/samsung-galaxy-s26-ultra-512gb-black-5g.html",
-      "checked": "2026-11-20"
+      "note": "Coolblue shows a '€250 cashback' badge on S26 Ultra pages. Confirm the cashback dates before relying on it.",
+      "url": "https://www.coolblue.nl/en/mobile-phones/smartphones/samsung/samsung-galaxy-s26-ultra",
+      "checked": "2026-11-23"
     },
     {
       "country": "BE",
@@ -209,14 +209,14 @@
       "channel": "public"
     },
     {
-      "title": "Samsung cashback (up to €250)",
+      "title": "Samsung cashback up to €250 (Coolblue badge)",
       "country": "NL",
       "site": "promotions.my-samsung.com",
       "kind": "cashback",
-      "detail": "Not shown on Coolblue's S26 Ultra page today. Earlier rounds ran in summer. Check Samsung's promotions page.",
+      "detail": "Coolblue now shows a '€250 cashback' badge on S26 Ultra listings during its Black Friday (9-30 Nov). The product page didn't confirm it on 20 Nov, so check the conditions before buying.",
       "ends": "",
       "status": "check",
-      "url": "https://promotions.my-samsung.com/nl/offers",
+      "url": "https://www.coolblue.nl/en/mobile-phones/smartphones/samsung/samsung-galaxy-s26-ultra",
       "channel": "public"
     },
     {
@@ -292,6 +292,12 @@
   ],
   "alerts": [
     {
+      "at": "2026-11-23T07:45:00+01:00",
+      "level": "info",
+      "text": "Coolblue NL shows a €250 Samsung cashback badge on the S26 Ultra 512GB (€1,609). Conditions not confirmed yet.",
+      "url": "https://www.coolblue.nl/en/mobile-phones/smartphones/samsung/samsung-galaxy-s26-ultra"
+    },
+    {
       "at": "2026-11-22T13:00:00+01:00",
       "level": "new-low",
       "text": "New lowest 512GB price: €1,079 for a new black S26 Ultra in Germany (idealo best price).",
@@ -356,6 +362,11 @@
       "date": "2026-11-22",
       "best512": 1079.0,
       "where": "idealo.de (DE)"
+    },
+    {
+      "date": "2026-11-23",
+      "best512": 1079.0,
+      "where": "idealo.de (DE)"
     }
   ],
   "dates": [
@@ -385,7 +396,7 @@
     }
   ],
   "checkTimes": [
-    "08:00",
+    "07:30",
     "13:00"
   ]
 }
