@@ -1,6 +1,6 @@
 {
   "target": "Samsung Galaxy S26 Ultra, 512GB or 1TB, new",
-  "lastChecked": "2026-11-24T07:30:00+01:00",
+  "lastChecked": "2026-11-24T13:00:00+01:00",
   "checkEveryHours": 2,
   "budget": 900,
   "listPrice512": 1749,
@@ -11,9 +11,9 @@
       "site": "bol.com",
       "shop": "bol.com plaza",
       "storage": "512GB",
-      "price": 1075.0,
+      "price": 1064.99,
       "sellerType": "marketplace",
-      "note": "Third-party seller on Bol. Lowest Dutch 512GB price today, down €71 since yesterday.",
+      "note": "Lowest NL price on the Android Planet tracker (bol.com partner seller, 2-year warranty)",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
       "checked": "2026-11-24"
     },
@@ -126,6 +126,17 @@
       "note": "Black, new. Lowest German price reported by idealo during Black Week. Many German shops deliver only inside Germany.",
       "url": "https://www.mydealz.de/deals/black-friday-samsung-galaxy-s26-ultra-512-gb-telekom-magentamobil-s-eco-90-gb-5g-eff-932-eur-mtl-2874545",
       "checked": "2026-11-22"
+    },
+    {
+      "country": "NL",
+      "site": "belsimpel.nl",
+      "shop": "Belsimpel",
+      "storage": "512GB",
+      "price": 1069.0,
+      "sellerType": "shop",
+      "note": "Phone only, no plan; seen on the Android Planet tracker",
+      "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
+      "checked": "2026-11-24"
     }
   ],
   "promos": [
@@ -171,7 +182,7 @@
       "kind": "discount",
       "detail": "Samsung Italy online shop, on top of Black Friday prices.",
       "ends": "2026-11-24T09:00:00+01:00",
-      "status": "active",
+      "status": "expired",
       "url": "https://news.samsung.com/it/samsung-black-friday-2026-e-il-momento-giusto-per-un-nuovo-galaxy",
       "channel": "public"
     },
@@ -292,6 +303,18 @@
   ],
   "alerts": [
     {
+      "at": "2026-11-24T13:00:00+01:00",
+      "level": "new-low",
+      "text": "New lowest 512GB: €1,064.99 at bol.com plaza (NL). Belsimpel €1,069. Still above your €900 budget.",
+      "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/"
+    },
+    {
+      "at": "2026-11-24T13:00:00+01:00",
+      "level": "expired",
+      "text": "Samsung Italy 5% off orders over €1,000 ended today at 09:00.",
+      "url": "https://news.samsung.com/it/samsung-black-friday-2026-e-il-momento-giusto-per-un-nuovo-galaxy"
+    },
+    {
       "at": "2026-11-24T07:30:00+01:00",
       "level": "new-low",
       "text": "New lowest 512GB price: €1,075 at bol.com plaza (NL), down from €1,145.90.",
@@ -382,8 +405,8 @@
     },
     {
       "date": "2026-11-24",
-      "best512": 1075.0,
-      "where": "bol.com (NL)"
+      "best512": 1064.99,
+      "where": "bol.com plaza (NL)"
     }
   ],
   "dates": [
