@@ -1,21 +1,21 @@
 {
   "target": "Samsung Galaxy S26 Ultra, 512GB or 1TB, new",
-  "lastChecked": "2026-11-23T13:00:00+01:00",
+  "lastChecked": "2026-11-24T07:30:00+01:00",
   "checkEveryHours": 2,
   "budget": 900,
-  "listPrice512": 1649,
-  "listPrice1tb": 1949,
+  "listPrice512": 1749,
+  "listPrice1tb": 2149,
   "prices": [
     {
       "country": "NL",
       "site": "bol.com",
       "shop": "bol.com plaza",
       "storage": "512GB",
-      "price": 1145.9,
+      "price": 1075.0,
       "sellerType": "marketplace",
-      "note": "Third-party seller on Bol. Lowest Dutch 512GB price today; up about €80 since Friday.",
+      "note": "Third-party seller on Bol. Lowest Dutch 512GB price today, down €71 since yesterday.",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-23"
+      "checked": "2026-11-24"
     },
     {
       "country": "DE",
@@ -44,11 +44,11 @@
       "site": "androidplanet.nl",
       "shop": "Lowest shop on Android Planet tracker",
       "storage": "1TB",
-      "price": 1449.0,
+      "price": 1429.0,
       "sellerType": "shop",
       "note": "Lowest Dutch 1TB price today.",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/",
-      "checked": "2026-11-22"
+      "checked": "2026-11-24"
     },
     {
       "country": "IT",
@@ -66,11 +66,11 @@
       "site": "samsung.com/nl",
       "shop": "Samsung + code BF26",
       "storage": "512GB",
-      "price": 1484.1,
+      "price": 1574.1,
       "sellerType": "samsung",
-      "note": "€1,649 list price minus 10% with code BF26. Check the live price on the page.",
+      "note": "Samsung raised the 512GB list price to €1,749. Minus 10% with code BF26.",
       "url": "https://www.samsung.com/nl/smartphones/galaxy-s26-ultra/buy",
-      "checked": "2026-11-22"
+      "checked": "2026-11-24"
     },
     {
       "country": "NL",
@@ -292,6 +292,12 @@
   ],
   "alerts": [
     {
+      "at": "2026-11-24T07:30:00+01:00",
+      "level": "new-low",
+      "text": "New lowest 512GB price: €1,075 at bol.com plaza (NL), down from €1,145.90.",
+      "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/"
+    },
+    {
       "at": "2026-11-23T13:00:00+01:00",
       "level": "info",
       "text": "Correction: the €250 cashback badge on Coolblue's S26 Ultra is from a June-July promotion. Coolblue's current Black Friday cashback doesn't cover the S26 Ultra.",
@@ -373,6 +379,11 @@
       "date": "2026-11-23",
       "best512": 1079.0,
       "where": "idealo.de (DE)"
+    },
+    {
+      "date": "2026-11-24",
+      "best512": 1075.0,
+      "where": "bol.com (NL)"
     }
   ],
   "dates": [
