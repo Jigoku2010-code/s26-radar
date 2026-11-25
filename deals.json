@@ -1,6 +1,6 @@
 {
   "target": "Samsung Galaxy S26 Ultra, 512GB or 1TB, new",
-  "lastChecked": "2026-11-24T13:00:00+01:00",
+  "lastChecked": "2026-11-25T07:30:00+01:00",
   "checkEveryHours": 2,
   "budget": 900,
   "listPrice512": 1749,
@@ -11,11 +11,11 @@
       "site": "bol.com",
       "shop": "bol.com plaza",
       "storage": "512GB",
-      "price": 1064.99,
+      "price": 1204.95,
       "sellerType": "marketplace",
       "note": "Lowest NL price on the Android Planet tracker (bol.com partner seller, 2-year warranty)",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-24"
+      "checked": "2026-11-25"
     },
     {
       "country": "DE",
@@ -132,11 +132,22 @@
       "site": "belsimpel.nl",
       "shop": "Belsimpel",
       "storage": "512GB",
-      "price": 1069.0,
+      "price": 1159.0,
       "sellerType": "shop",
       "note": "Phone only, no plan; seen on the Android Planet tracker",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-24"
+      "checked": "2026-11-25"
+    },
+    {
+      "country": "NL",
+      "site": "amazon.nl",
+      "shop": "Amazon Netherlands",
+      "storage": "512GB",
+      "price": 1159.0,
+      "sellerType": "shop",
+      "note": "Seen on the Android Planet tracker",
+      "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
+      "checked": "2026-11-25"
     }
   ],
   "promos": [
@@ -146,7 +157,7 @@
       "site": "samsung.com/de",
       "kind": "gift",
       "code": "BF2026",
-      "detail": "Buy any S26 Ultra (256GB, 512GB or 1TB, without a phone plan) in Samsung Germany's online shop, add the Crystal UHD 55-inch TV and use code BF2026: the TV is free. Samsung Germany delivers only inside Germany.",
+      "detail": "Buy any S26 Ultra (256GB, 512GB or 1TB, without a phone plan) in Samsung Germany's online shop, add the Crystal UHD 55-inch TV and use code BF2026: the TV is free. Samsung Germany delivers only inside Germany. Same campaign also offers a free Samsung washing machine or washer-dryer instead (bundle listed with the 256GB model, code BF2026).",
       "ends": "2026-11-26T13:59:00+01:00",
       "status": "active",
       "channel": "public",
@@ -303,6 +314,12 @@
   ],
   "alerts": [
     {
+      "at": "2026-11-25T07:30:00+01:00",
+      "level": "info",
+      "text": "NL prices went up: lowest 512GB is now €1,159 at Belsimpel and Amazon NL (bol.com plaza €1,204.95).",
+      "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/"
+    },
+    {
       "at": "2026-11-24T13:00:00+01:00",
       "level": "new-low",
       "text": "New lowest 512GB: €1,064.99 at bol.com plaza (NL). Belsimpel €1,069. Still above your €900 budget.",
@@ -407,6 +424,11 @@
       "date": "2026-11-24",
       "best512": 1064.99,
       "where": "bol.com plaza (NL)"
+    },
+    {
+      "date": "2026-11-25",
+      "best512": 1079.0,
+      "where": "idealo (DE, last seen 22 Nov)"
     }
   ],
   "dates": [
