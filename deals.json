@@ -1,6 +1,6 @@
 {
   "target": "Samsung Galaxy S26 Ultra, 512GB or 1TB, new",
-  "lastChecked": "2026-11-25T13:00:00+01:00",
+  "lastChecked": "2026-11-26T07:30:00+01:00",
   "checkEveryHours": 2,
   "budget": 900,
   "listPrice512": 1749,
@@ -15,7 +15,7 @@
       "sellerType": "marketplace",
       "note": "Lowest NL price on the Android Planet tracker (bol.com partner seller, 2-year warranty)",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-25"
+      "checked": "2026-11-26"
     },
     {
       "country": "DE",
@@ -136,7 +136,7 @@
       "sellerType": "shop",
       "note": "Phone only, no plan; seen on the Android Planet tracker",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-25"
+      "checked": "2026-11-26"
     },
     {
       "country": "NL",
@@ -147,7 +147,7 @@
       "sellerType": "shop",
       "note": "Seen on the Android Planet tracker",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-25"
+      "checked": "2026-11-26"
     }
   ],
   "promos": [
@@ -314,6 +314,12 @@
   ],
   "alerts": [
     {
+      "at": "2026-11-26T07:30:00+01:00",
+      "level": "ending",
+      "text": "Ends today 13:59: free TV or washing machine with an S26 Ultra in Samsung's German shop (code BF2026, Germany delivery only).",
+      "url": "https://www.samsung.com/de/"
+    },
+    {
       "at": "2026-11-25T13:00:00+01:00",
       "level": "new-low",
       "text": "Amazon NL dropped to €1,099 for the 512GB (lowest in the Netherlands today). Still above your €900 budget.",
@@ -441,6 +447,11 @@
       "date": "2026-11-25",
       "best512": 1079.0,
       "where": "idealo (DE, last seen 22 Nov)"
+    },
+    {
+      "date": "2026-11-26",
+      "best512": 1079.0,
+      "where": "idealo (DE, last seen 22 Nov); NL low €1,099 Amazon"
     }
   ],
   "dates": [
