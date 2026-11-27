@@ -1,6 +1,6 @@
 {
   "target": "Samsung Galaxy S26 Ultra, 512GB or 1TB, new",
-  "lastChecked": "2026-11-26T13:00:00+01:00",
+  "lastChecked": "2026-11-27T07:30:00+01:00",
   "checkEveryHours": 2,
   "budget": 900,
   "listPrice512": 1749,
@@ -15,7 +15,7 @@
       "sellerType": "marketplace",
       "note": "Lowest NL price on the Android Planet tracker (bol.com partner seller, 2-year warranty)",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-26"
+      "checked": "2026-11-27"
     },
     {
       "country": "DE",
@@ -81,7 +81,7 @@
       "sellerType": "shop",
       "note": "The '€250 cashback' badge is from Samsung's June-July promotion. Coolblue's current Black Friday cashback doesn't include the S26 Ultra.",
       "url": "https://www.coolblue.nl/en/mobile-phones/smartphones/samsung/samsung-galaxy-s26-ultra",
-      "checked": "2026-11-26"
+      "checked": "2026-11-27"
     },
     {
       "country": "BE",
@@ -136,7 +136,7 @@
       "sellerType": "shop",
       "note": "Phone only, no plan; seen on the Android Planet tracker",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-26"
+      "checked": "2026-11-27"
     },
     {
       "country": "NL",
@@ -147,7 +147,7 @@
       "sellerType": "shop",
       "note": "Seen on the Android Planet tracker",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-26"
+      "checked": "2026-11-27"
     }
   ],
   "promos": [
@@ -159,7 +159,7 @@
       "code": "BF2026",
       "detail": "Buy any S26 Ultra (256GB, 512GB or 1TB, without a phone plan) in Samsung Germany's online shop, add the Crystal UHD 55-inch TV and use code BF2026: the TV is free. Samsung Germany delivers only inside Germany. Same campaign also offers a free Samsung washing machine or washer-dryer instead (bundle listed with the 256GB model, code BF2026).",
       "ends": "2026-11-26T13:59:00+01:00",
-      "status": "active",
+      "status": "expired",
       "channel": "public",
       "url": "https://www.netzwelt.de/schnaeppchen/260517-black-friday-samsung-galaxy-s26-ultra-kaufen-55-zoll-fernseher-geschenkt-bekommen.html"
     },
@@ -314,6 +314,12 @@
   ],
   "alerts": [
     {
+      "at": "2026-11-27T07:30:00+01:00",
+      "level": "expired",
+      "text": "Samsung Germany's free TV / washing machine with the S26 Ultra ended yesterday at 13:59.",
+      "url": "https://www.samsung.com/de/"
+    },
+    {
       "at": "2026-11-26T13:00:00+01:00",
       "level": "info",
       "text": "Coolblue and MediaMarkt NL cut the 512GB to €1,399 (Coolblue was €1,609). Lowest in NL is still Amazon at €1,099.",
@@ -456,6 +462,11 @@
     },
     {
       "date": "2026-11-26",
+      "best512": 1079.0,
+      "where": "idealo (DE, last seen 22 Nov); NL low €1,099 Amazon"
+    },
+    {
+      "date": "2026-11-27",
       "best512": 1079.0,
       "where": "idealo (DE, last seen 22 Nov); NL low €1,099 Amazon"
     }
