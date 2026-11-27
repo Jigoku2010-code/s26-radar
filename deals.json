@@ -1,6 +1,6 @@
 {
   "target": "Samsung Galaxy S26 Ultra, 512GB or 1TB, new",
-  "lastChecked": "2026-11-27T07:30:00+01:00",
+  "lastChecked": "2026-11-27T13:00:00+01:00",
   "checkEveryHours": 2,
   "budget": 900,
   "listPrice512": 1749,
@@ -66,11 +66,11 @@
       "site": "samsung.com/nl",
       "shop": "Samsung + code BF26",
       "storage": "512GB",
-      "price": 1574.1,
+      "price": 1259.1,
       "sellerType": "samsung",
-      "note": "Samsung raised the 512GB list price to €1,749. Minus 10% with code BF26.",
+      "note": "Samsung.nl now €1,399, minus 10% with code BF26",
       "url": "https://www.samsung.com/nl/smartphones/galaxy-s26-ultra/buy",
-      "checked": "2026-11-24"
+      "checked": "2026-11-27"
     },
     {
       "country": "NL",
@@ -313,6 +313,12 @@
     }
   ],
   "alerts": [
+    {
+      "at": "2026-11-27T13:00:00+01:00",
+      "level": "info",
+      "text": "Samsung.nl lowered the 512GB to €1,399; with code BF26 that's €1,259.10. Cheapest NL is still Amazon at €1,099.",
+      "url": "https://www.samsung.com/nl/smartphones/galaxy-s26-ultra/buy/"
+    },
     {
       "at": "2026-11-27T07:30:00+01:00",
       "level": "expired",
