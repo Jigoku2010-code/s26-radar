@@ -1,6 +1,6 @@
 {
   "target": "Samsung Galaxy S26 Ultra, 512GB or 1TB, new",
-  "lastChecked": "2026-11-28T07:30:00+01:00",
+  "lastChecked": "2026-11-28T10:07:00+01:00",
   "checkEveryHours": 2,
   "budget": 900,
   "listPrice512": 1749,
@@ -15,7 +15,7 @@
       "sellerType": "marketplace",
       "note": "Lowest NL price on the Android Planet tracker (bol.com partner seller, 2-year warranty)",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-27"
+      "checked": "2026-11-28"
     },
     {
       "country": "DE",
@@ -70,7 +70,7 @@
       "sellerType": "samsung",
       "note": "Samsung.nl now €1,399, minus 10% with code BF26",
       "url": "https://www.samsung.com/nl/smartphones/galaxy-s26-ultra/buy",
-      "checked": "2026-11-27"
+      "checked": "2026-11-28"
     },
     {
       "country": "NL",
@@ -81,7 +81,7 @@
       "sellerType": "shop",
       "note": "The '€250 cashback' badge is from Samsung's June-July promotion. Coolblue's current Black Friday cashback doesn't include the S26 Ultra.",
       "url": "https://www.coolblue.nl/en/mobile-phones/smartphones/samsung/samsung-galaxy-s26-ultra",
-      "checked": "2026-11-27"
+      "checked": "2026-11-28"
     },
     {
       "country": "BE",
@@ -136,7 +136,7 @@
       "sellerType": "shop",
       "note": "Phone only, no plan; seen on the Android Planet tracker",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-27"
+      "checked": "2026-11-28"
     },
     {
       "country": "NL",
@@ -147,7 +147,7 @@
       "sellerType": "shop",
       "note": "Seen on the Android Planet tracker",
       "url": "https://www.androidplanet.nl/samsung/galaxy-s26-ultra/prijzen/512gb/",
-      "checked": "2026-11-27"
+      "checked": "2026-11-28"
     }
   ],
   "promos": [
