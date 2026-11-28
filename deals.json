@@ -1,6 +1,6 @@
 {
   "target": "Samsung Galaxy S26 Ultra, 512GB or 1TB, new",
-  "lastChecked": "2026-11-27T13:00:00+01:00",
+  "lastChecked": "2026-11-28T07:30:00+01:00",
   "checkEveryHours": 2,
   "budget": 900,
   "listPrice512": 1749,
@@ -473,6 +473,11 @@
     },
     {
       "date": "2026-11-27",
+      "best512": 1079.0,
+      "where": "idealo (DE, last seen 22 Nov); NL low €1,099 Amazon"
+    },
+    {
+      "date": "2026-11-28",
       "best512": 1079.0,
       "where": "idealo (DE, last seen 22 Nov); NL low €1,099 Amazon"
     }
